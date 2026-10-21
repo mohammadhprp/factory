@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "merge-risk": {
+      "source": "warpdotdev/common-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/merge-risk/SKILL.md",
+      "computedHash": "0eb9f25538707620ce0b28356ad25ae1e440db8f9c0fc2868fc74d9d745ccb82"
+    },
+    "research": {
+      "source": "warpdotdev/common-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/research/SKILL.md",
+      "computedHash": "09b957d374c102b3214f5ca934938772890da539fdd56c26e1912afbdb77b140"
+    },
+    "write-tech-spec": {
+      "source": "warpdotdev/common-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/write-tech-spec/SKILL.md",
+      "computedHash": "c7913bfd1ea2be7ce38d5beb7e923b96f5689f6145250af1d81b985e8be4a882"
+    }
+  }
+}
