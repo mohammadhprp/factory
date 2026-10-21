@@ -1,0 +1,628 @@
+{
+  "version": 2,
+  "imports": [
+    {
+      "name": "build-factory",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/setup-matt-pocock-skills",
+      "license_path": "build-factory/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "f148858ffb7f63c03c06fca06e6fdb1d91a35c6b293244b8fdfacd5f4cc028c4",
+        "agents/openai.yaml": "9527de0110541c45712319025155aeab8dc7d77c6ed6e5e83271bab1851ab939",
+        "domain.md": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+        "issue-tracker-github.md": "f0653fe106dd8ee7b33be27bd7fe3104b40555896cb45f61997aed20467020c3",
+        "issue-tracker-gitlab.md": "591a9e7057382aaccdfbed3f7ea3f2ad07e0cd29f012d18b82ee4e485fd81e24",
+        "issue-tracker-local.md": "7dcda20a2eb4bdc89b95d1143423c0691309921cadae3132e6424f371030506e",
+        "triage-labels.md": "ae512af838c78b8750471c42cd2b20fa32319553e61d84c9a23d171b40ce14aa"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "29b6f87d5460f12dc2b6f173356fbf5f8509cacc96b0cd649d73ad1c50e45954",
+          "reason": "Rename the local setup to build-factory and configure local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "4cdc87deae731cc2097ca3e50fc9f73f6ca690ff95668cfe857a6ed4eebbad40",
+          "reason": "Rename the local setup to build-factory and configure local task state; external source/delivery operations belong to implement."
+        },
+        "issue-tracker-github.md": {
+          "sha256": null,
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "issue-tracker-gitlab.md": {
+          "sha256": null,
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "issue-tracker-local.md": {
+          "sha256": "d6b63f8eb9c5bff209ac2c1b0467b25d0863d1642bb073e1923cb37b789d0e2a",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "triage-labels.md": {
+          "sha256": "f16692f85b1dd7221225ca21a182c0513ce1f20a222a04b8cfee12da8749c62d",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "to-spec",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/to-spec",
+      "license_path": "to-spec/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+        "agents/openai.yaml": "1c5b4d1e3d8e52287ef19cc2742fdbbfae1914ac75d33af3e4c8174f08cc55bb"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "93c2474c5fb3f0c8f90f5981bf6d3a1492c48a4733850a1c61251e2a55545694",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "76f92acf42932fb13652c69f472b999928f63dd5a9f63af100b031cdd8e803de",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "to-tickets",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/to-tickets",
+      "license_path": "to-tickets/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+        "agents/openai.yaml": "21bc6215fffcd7614e9f772bb1760e87cc5fc7dcc707e7d282bc9414267a6090"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "0be59eeeda9221ed55d073e7a3200635924068de20632c6663e83ed467499492",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "3d18e521686d93844c70801e0723442e53836b731d0d18636ccc997770862d6d",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "implement-spec",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/implement-spec",
+      "license_path": "implement-spec/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "7a22dd2e60b8fcece478ced9d2533582adf3520d695acd3ab715341535c9e56d",
+        "agents/openai.yaml": "fd41efb42c60c96320d6531be7e4bf15cbf5518cd652d57dff27ccffa46988e9"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "99ce11968c0b109d26db48c45a9f1406e75f08e933f8ec5f886d0ce8abd5a0b6",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "da3ee140c4ddd89e31d0244109bc2d1a2115181fa26314679ba0d62353101fab",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "tdd",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/tdd",
+      "license_path": "tdd/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+        "agents/openai.yaml": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+        "mocking.md": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+        "tests.md": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a"
+      }
+    },
+    {
+      "name": "code-review",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/code-review",
+      "license_path": "code-review/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357",
+        "agents/openai.yaml": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "67fc9fa365682f722d0c44ca76341ed66fc8e8c4ef7373f2f2f8c53e5373f387",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "ff41444b0ec3ed461581f3cf3ee2f0abd10474c25634adc692c94669bcceed80",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "diagnosing-bugs",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/diagnosing-bugs",
+      "license_path": "diagnosing-bugs/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+        "agents/openai.yaml": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+        "scripts/hitl-loop.template.sh": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503"
+      }
+    },
+    {
+      "name": "domain-modeling",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/domain-modeling",
+      "license_path": "domain-modeling/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "ADR-FORMAT.md": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+        "GLOSSARY-FORMAT.md": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+        "SKILL.md": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+        "agents/openai.yaml": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b"
+      }
+    },
+    {
+      "name": "codebase-design",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/codebase-design",
+      "license_path": "codebase-design/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "DEEPENING.md": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+        "DESIGN-IT-TWICE.md": "52b52e75655a27aea59c6966b410bac82448968ad46ef1ebb9f07c274e3ae010",
+        "SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+        "agents/openai.yaml": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f"
+      }
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/improve-codebase-architecture",
+      "license_path": "improve-codebase-architecture/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "HTML-REPORT.md": "581e8bb5a521e46bbda8ca7e19b15948bed882187108092ebb90c62513b77528",
+        "SKILL.md": "552240a5ab5cec6b67c15dd1ad6e9f6962b1bca6ce870059a8c2713760c20392",
+        "agents/openai.yaml": "c8cb20f68ebf0edb4e497bc11ae5fcaa196004e661cd189015b04f4109ced7f1"
+      },
+      "adaptations": {
+        "HTML-REPORT.md": {
+          "sha256": "81dd4899db4a79cd28c803acd8a6d065470ed40f4cbe8aa9eb8e459688d5d79a",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "SKILL.md": {
+          "sha256": "96df3bc6039ae6a7471f8117e57e5dbe9a7eadc34f2b80767336bdd87962712e",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "prototype",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/prototype",
+      "license_path": "prototype/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "LOGIC.md": "f61c7d249e786a79ef289018901c348271e1798dd0b0bc5607b5c6f4d4a01ab9",
+        "SKILL.md": "714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3",
+        "UI.md": "723211e878acbc7b6ff09755263f3295cde724ba902ff0064da41eed51d45ad3",
+        "agents/openai.yaml": "5af65e43ab41a350436697b81e27b7f848d36782043b73c322bb2c9fa9cc55dc"
+      }
+    },
+    {
+      "name": "retro",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/retro",
+      "license_path": "retro/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+        "agents/openai.yaml": "cb6fb9d7e6b4be5975f41f6def1dd00a1255bad5d9b02696b124c924a8b8745c"
+      }
+    },
+    {
+      "name": "writing-for-agents",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/productivity/writing-for-agents",
+      "license_path": "writing-for-agents/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+        "SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+        "agents/openai.yaml": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b"
+      }
+    },
+    {
+      "name": "handoff",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/productivity/handoff",
+      "license_path": "handoff/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "SKILL.md": "4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3",
+        "agents/openai.yaml": "5c479fd562c691851690e8b18c8501045bef0943c10743d636b2fae26add1d28"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "d8795c3f102f82849e1af6b48fd1e53fb8c6a87497372bb928f055eb37161456",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "716814579f7d28276b053578e134314e81f4a4ae52bf5018a983030ad8ddd702",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "triage",
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_path": "skills/engineering/triage",
+      "license_path": "triage/LICENSE",
+      "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "files": {
+        "AGENT-BRIEF.md": "7f5f87fed3033df1b06e083c480f3e847b1fbb0647746b8a4c6a50f9f26ef44f",
+        "OUT-OF-SCOPE.md": "1fbf9b432130c6380aa65813b55553cfda150309b27c595e183f8e335b8a190d",
+        "SKILL.md": "917b0baf74be583e74f110857ed45df2766617f75c00baf61fd136d7af515edf",
+        "agents/openai.yaml": "2e683717720cf456d165d0bb1a68bb600d0b6a8ccb61841c172e50d26f95351c"
+      },
+      "adaptations": {
+        "AGENT-BRIEF.md": {
+          "sha256": "2a6456808f0015f5e86c781f449e07a6bfa826186531fe4a59078c069d7664a3",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "OUT-OF-SCOPE.md": {
+          "sha256": "0da15df9336c8b164d3239a9d7587ece94b76833b46c275e7215ddcf172c6e25",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "SKILL.md": {
+          "sha256": "65383021a64e9d15c0f7fe97606ff81ac905ad64c4179cf9e96516e576a46124",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "b067cb06cab6c7cc389ad450ab77ee16ae701be43b8498ce5c761cbc507385b5",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "create-verification-skill",
+      "repository": "backnotprop/pstack",
+      "commit": "e44668c2aad92eacf4e84df47984121fefb11b82",
+      "source_path": "skills/create-verification-skill",
+      "license_path": "create-verification-skill/LICENSE",
+      "license_sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "files": {
+        "SKILL.md": "bba612e8b81a02df0f49e6f6911f3b543c8c7d9f1f3c13ae6c0e2d58cc8c3ad3",
+        "references/feature-map-example/README.md": "cb7bd782cf89968a4ba3d58a5151db837430db92d19a6f52a906973b77b516ba",
+        "references/feature-map-example/create-note.md": "644a44c74f35d38c2feb7cd05a0121fdebbb623e8dc376c185b565a581d1ccf7",
+        "references/feature-map-example/search.md": "6e87b9e7f2791a7776ba1bb83f371cd285c306c67f19d245cc4dd6ca3015c823"
+      }
+    },
+    {
+      "name": "maintain-verification-skill",
+      "repository": "backnotprop/pstack",
+      "commit": "e44668c2aad92eacf4e84df47984121fefb11b82",
+      "source_path": "skills/maintain-verification-skill",
+      "license_path": "maintain-verification-skill/LICENSE",
+      "license_sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "files": {
+        "SKILL.md": "5943f7747da6aafcf5c1063c988e725c97e415866f5c7746279012f35cb49815"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "12fcc434adee27e19624694e0feecfc61e6817c1029341ba2041edd2332c1d50",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "benchmark-checklist",
+      "repository": "backnotprop/pstack",
+      "commit": "e44668c2aad92eacf4e84df47984121fefb11b82",
+      "source_path": "skills/benchmark-checklist",
+      "license_path": "benchmark-checklist/LICENSE",
+      "license_sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "files": {
+        "SKILL.md": "ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0"
+      }
+    },
+    {
+      "name": "verification-before-completion",
+      "repository": "obra/superpowers",
+      "commit": "b739a8af570e10a95898f2bdf6cec97467fa6c12",
+      "source_path": "skills/verification-before-completion",
+      "license_path": "verification-before-completion/LICENSE",
+      "license_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "files": {
+        "SKILL.md": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3"
+      }
+    },
+    {
+      "name": "differential-review",
+      "repository": "trailofbits/skills",
+      "commit": "a3131740a39291e42fd15b9eac07e0b393ad71b1",
+      "source_path": "plugins/differential-review/skills/differential-review",
+      "license_path": "differential-review/LICENSE",
+      "license_sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297",
+      "files": {
+        "SKILL.md": "f9af6a8193fc1a9f8ca3c54bb8d19095a5f20c9472ca6d014488bbde50b67da0",
+        "adversarial.md": "3cb823f38c6e551cbcf5f72325d2bb219dacdad774072519c31d50d92db19800",
+        "agents/openai.yaml": "0279d56f88dc1a04d4b1941a25fa7672912a3ceb0557b13c38d069908b30ae61",
+        "assets/trail-of-bits-mark.svg": "4bf74c789b38dcf6ad762c136b6832363d27ae19fbaa9a18ec18d66ecce6ca05",
+        "methodology.md": "16b335d24cf2145e3dc4a37f50056550d29db2efa20e6df78fec95ec1e6fb0b4",
+        "patterns.md": "52abb18abbc73502a3d3b2f36a7a035adc1db40fd812d1d5424cf065036a06e9",
+        "reporting.md": "0016876dc6f158e926448bff1b6f634796757c7afe09dff177cfe30250724fc4"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "08d560060560f64801d840a15b2ef2cafe9ccf38b27c80b75f194fc35df037ad",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "agents/openai.yaml": {
+          "sha256": "f799a34a77fe2f7d7a182fc4ae12a61d533827ba6987a8418949dc103545fd9f",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        },
+        "methodology.md": {
+          "sha256": "bc8f46f38fe550dc72d1d5a51d0c59f61b9c6797faec3a0384a9239c7cdfe32f",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "sharp-edges",
+      "repository": "trailofbits/skills",
+      "commit": "a3131740a39291e42fd15b9eac07e0b393ad71b1",
+      "source_path": "plugins/sharp-edges/skills/sharp-edges",
+      "license_path": "sharp-edges/LICENSE",
+      "license_sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297",
+      "files": {
+        "SKILL.md": "3b69a709c2f8f0cfcf57d40a3186e166f307865cc8ed924be4098e549a121e9c",
+        "agents/openai.yaml": "d18c31ffb600df69db714161add9a1fe1dca38011b52a0c8926d4d4d3fb1ea4f",
+        "assets/trail-of-bits-mark.svg": "4bf74c789b38dcf6ad762c136b6832363d27ae19fbaa9a18ec18d66ecce6ca05",
+        "references/auth-patterns.md": "1fbf526ca1db7204f9ebb1bf4eb3c48c544676623d23e5d28e01f6f63c355be2",
+        "references/case-studies.md": "2e81a320728b4597bf84c490176d5bf212f1e6ba6f87aafba61ad1734de35332",
+        "references/config-patterns.md": "1d99f2716f7bef18efe71015ce0c56e0f4961c042faa503d796d6d4d1626fdc6",
+        "references/crypto-apis.md": "8baddc83a1f964d6d8b15678d60a37c93029c18dc162bd7c00895e585ff1a825",
+        "references/lang-c.md": "d077d711c73749c924eae81c06018b14bbf1ec9b93d71723c472b43df5d7d5ae",
+        "references/lang-csharp.md": "8fa9e93d36c0e1397b7ca81307163370fc43cf700215b7c6d7aa1b09fdb91fb4",
+        "references/lang-go.md": "839c0e7b4e3fa2f3b37c651e926aa59d69d20bfef5e67f569eedacf11354844d",
+        "references/lang-java.md": "3b93b6049f7e0e356a1ffebc0b4642f3cef315d90be45b63e15c8c4814f9ebeb",
+        "references/lang-javascript.md": "cf72f55d31318666942a8d1d64340befc3c4e7223afc2ca196e6a776ffa4c895",
+        "references/lang-kotlin.md": "c891148c10a4941c3396416a10ac64512eb3a9e13ea5eeaec3902da4b51501dd",
+        "references/lang-php.md": "7960d9773874cf06c5b470a5ca3ab406d896e66b71e713d809bc1ecfcab63485",
+        "references/lang-python.md": "36543becc25b4e3f41eaedcab62e9b204657e6742b8ac95e405bcd040d33bf03",
+        "references/lang-ruby.md": "d9ba749caaccb8a3bb39e2199b2062c0957cf48739218ba8022d49be5cba2088",
+        "references/lang-rust.md": "3d14993ea70b2b2df3fc0f388cbd1631470895c27ccbd9d764296d1da8f5b6ee",
+        "references/lang-swift.md": "a64ab8692db0f3e43526088c63c7fdcb7354d1b24e6fe7ca759aea3260890e04",
+        "references/language-specific.md": "4522b4a37cfd7d3aa689209dfd4569f3b39074bd1f5987a36a6e819f501141b6"
+      }
+    },
+    {
+      "name": "deployment-pipeline-design",
+      "repository": "wshobson/agents",
+      "commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "source_path": "plugins/cicd-automation/skills/deployment-pipeline-design",
+      "license_path": "deployment-pipeline-design/LICENSE",
+      "license_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+      "files": {
+        "SKILL.md": "9a56bd9401c1dc8ef5a15758d7234f211193097ddb3895d46d1ddcd730687b18",
+        "references/advanced-strategies.md": "4f7dd0252f8a0d0c195e729500e4b1ae72c94157358faec5303e78d9b9c13a52",
+        "references/details.md": "0de81a3e3d168fa301f9b49a6be321a247c3ef8be40c167a283df4a3ee0d5a3b"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "fae7bc8be5d7b8b49d8759b5482c17385554048a4874e421742cdbf354fd1a9f",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "changelog-automation",
+      "repository": "wshobson/agents",
+      "commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "source_path": "plugins/documentation-generation/skills/changelog-automation",
+      "license_path": "changelog-automation/LICENSE",
+      "license_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+      "files": {
+        "SKILL.md": "b9748be2063023ba754d47ab9e727bcfa053041fd6f83c524eb8ae4a257cb6a1",
+        "references/details.md": "bb85b108b101f76ec02cd678e34e83181148a2bb49e240f23131c51288c76c32"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "4f26effbac7c52efe7de25c5902993564e2d223912cab1b4571cefdf9c4d72cc",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "incident-runbook-templates",
+      "repository": "wshobson/agents",
+      "commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "source_path": "plugins/incident-response/skills/incident-runbook-templates",
+      "license_path": "incident-runbook-templates/LICENSE",
+      "license_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+      "files": {
+        "SKILL.md": "fd9ca9b9bc958da514039d59e453b05182208c7410696273d2c62350ff3ad1aa",
+        "references/details.md": "298751de2594e03ed2654e794a9d856123278c55533cdf97f659518d58f27a57"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "5b522533ae9679f9cea2a294560289803f8b67ee9c7a4cb7038a2fbbd266e7ce",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "postmortem-writing",
+      "repository": "wshobson/agents",
+      "commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "source_path": "plugins/incident-response/skills/postmortem-writing",
+      "license_path": "postmortem-writing/LICENSE",
+      "license_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+      "files": {
+        "SKILL.md": "1a9d5b19b9ab32acb6616fb0990b8307888da0169537929916762d91501b84e0",
+        "references/details.md": "9b067bd306a0af292715b3d37df67b3b0bf962528b1922a768acbbfa0a905b44"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "d1e8b6d8930c8cbd890fdacab1c57f08290198be8adc2e7cb79753935e90d858",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "llm-evaluation",
+      "repository": "wshobson/agents",
+      "commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "source_path": "plugins/llm-application-dev/skills/llm-evaluation",
+      "license_path": "llm-evaluation/LICENSE",
+      "license_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+      "files": {
+        "SKILL.md": "d1c980c9674e3ed5d9c067bc7972c88953f5e3dfd06a5cd09877fb16021e3d39",
+        "references/details.md": "22cef4c0bd3cbceda2719d6f4a8e76c3248cbb3c14ab6c3ce2f025759bb6270b"
+      }
+    },
+    {
+      "name": "wcag-audit-patterns",
+      "repository": "wshobson/agents",
+      "commit": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
+      "source_path": "plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "license_path": "wcag-audit-patterns/LICENSE",
+      "license_sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+      "files": {
+        "SKILL.md": "db263a3405deb95a63175f33da4a9d82d8595599fbee4a81979059b35a7cec40",
+        "references/details.md": "0a61237ccb4e1b2cba4291f83e0747ad64ac9ba81b37427ee0e648537c9c78d6"
+      }
+    },
+    {
+      "name": "frontend-design",
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_path": "skills/frontend-design",
+      "license_path": "frontend-design/LICENSE.txt",
+      "license_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "files": {
+        "LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+      }
+    },
+    {
+      "name": "webapp-testing",
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_path": "skills/webapp-testing",
+      "license_path": "webapp-testing/LICENSE.txt",
+      "license_sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+      "files": {
+        "LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "SKILL.md": "51b7349e77ec63b7744a6f63647e7566a0b4d2e301121cc10e8c2113af6556a2",
+        "examples/console_logging.py": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
+        "examples/element_discovery.py": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
+        "examples/static_html_automation.py": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
+        "scripts/with_server.py": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "5b421c5eb72e6f59d3ecb25ebe430fdfa5c0a794228b292d3c57c8dc763e57c2",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "skill-creator",
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_path": "skills/skill-creator",
+      "license_path": "skill-creator/LICENSE.txt",
+      "license_sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+      "files": {
+        "LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "SKILL.md": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf",
+        "agents/analyzer.md": "bf68f4cac5a56c673a928c2e6d619586c5b93ea364026ab37547772cb45a663a",
+        "agents/comparator.md": "fe1fc9787c495d864c5d6eada47396478572325fde1b33a96d78bf4b849b7a3e",
+        "agents/grader.md": "57134da0c1a4eea33fbd74a1c9c44aa814f07d6bc64de303edb586f941e5d21a",
+        "assets/eval_review.html": "ce477dcc74dc1c0d1d3352646a79167b5a63634e936b1019160025065974e452",
+        "eval-viewer/generate_review.py": "fc9d1b9243fe5ab6012ebd579bd76d0035de1b79fd3b969de114defab26478fb",
+        "eval-viewer/viewer.html": "a53213426ee1100441d701a3a0d49cda7a842f992d2c36463f4d3cc0258575fa",
+        "references/schemas.md": "8e8876180a8989b406a4d3edddf875b04cdfd5805cc8616686d552b11ce4455f",
+        "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "scripts/aggregate_benchmark.py": "123ef128ea5ccc01a4b1ac212ef5567f21e9c13d3d240609780beeb3200c49aa",
+        "scripts/generate_report.py": "13df7118a3c50c83c4c3250a606d5f2b20b25a3d44cbc392b3d669ec75281453",
+        "scripts/improve_description.py": "87d864570220b699fac52da309d2d6efdb060647bfebc74f768128e646accf80",
+        "scripts/package_skill.py": "1a33059b0db1ef73375d46d513e5ea81369d2e8838c970597b0d52ddef8d1c0f",
+        "scripts/quick_validate.py": "67cf5703402013936c8fb75ad6a1afecd8841d45cc5e606b634eb05825fde365",
+        "scripts/run_eval.py": "43e3b8f80dbf69c343967ba77e268fae991d9fa3ed68b32a0ff02532cd48657f",
+        "scripts/run_loop.py": "7bd6f674203168520517eec94c55f493c0d154339b061b4d7c0f0dad187d0f21",
+        "scripts/utils.py": "3af8ae62c40c73ab712207436a0d9a981e845f25c5a7040229eb189cc8e45bb1"
+      }
+    },
+    {
+      "name": "skill-scanner",
+      "repository": "getsentry/skills",
+      "commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
+      "source_path": "skills/skill-scanner",
+      "license_path": "skill-scanner/LICENSE",
+      "license_sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+      "files": {
+        "SKILL.md": "b0fdcbb9cd0d11e0425815fa37bb5483b13e6dce5fe5f3aeb4529dc8f80708bd",
+        "references/dangerous-code-patterns.md": "9fe3e09ccc9f472271472b3dc8b20337b84e3161f949565102342b056e39a677",
+        "references/permission-analysis.md": "ed6c1ca37b31313869fa418f7fddf5df9f8213c2dac3d97a9f5a7eadc02833b3",
+        "references/prompt-injection-patterns.md": "237e41599d0d4d2d2af99683f77ad3ef6e504dff190b0ff58bbd310f11182228",
+        "scripts/scan_skill.py": "58f6f3f0164b5d1b96378207f9c717dd26554175df30d1ebbc7128fbf5d593ac"
+      }
+    },
+    {
+      "name": "write-product-spec",
+      "repository": "warpdotdev/common-skills",
+      "commit": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+      "source_path": ".agents/skills/write-product-spec",
+      "license_path": "write-product-spec/LICENSE",
+      "license_sha256": "9a10f320256635c6a2b58f9894b1f453e404142d07a6125ad788a3afbd7a7379",
+      "files": {
+        "SKILL.md": "c517e5d21063579cea112c01f81771bf60b6fb9819593e162474bd107b4292f9"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "7c226bf0991121110184f27ab66763fb6c51a496a705cd872633c6d9fbab0b73",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    },
+    {
+      "name": "write-tech-spec",
+      "repository": "warpdotdev/common-skills",
+      "commit": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+      "source_path": ".agents/skills/write-tech-spec",
+      "license_path": "write-tech-spec/LICENSE",
+      "license_sha256": "9a10f320256635c6a2b58f9894b1f453e404142d07a6125ad788a3afbd7a7379",
+      "files": {
+        "SKILL.md": "ead1a1aaad95822c9ca79428c909277e17ca627aa62f76946e128cf6eb111533"
+      },
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "2c97c68552ed30806e66bd2c8ff10edea7cb3acbbfe1a84f2a07cc5ae8d6f0ac",
+          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+        }
+      }
+    }
+  ]
+}

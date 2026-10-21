@@ -5,6 +5,8 @@ description: Delegate noisy investigation to one or more subagents so the orches
 
 # Research
 
+Use local source, logs, diffs, and imported context for factory investigations. Save durable findings under the active `.factory/<feature>/` directory. External task/PR retrieval belongs to implement. Public technical documentation research remains available when needed.
+
 Use this skill to answer a question by delegating the *work of finding the answer* to a subagent, so that the byproducts of that work — file contents, log noise, dead-end reads — never enter your own context. You get back a distilled answer plus the evidence that supports it, and you stay sharp for the actual task.
 
 ## Why this matters
@@ -69,3 +71,4 @@ The whole point is that the noise stays with the subagent. If a report comes bac
 ## After you get the answer
 
 Work from the distilled result. If you later find you need the underlying files to make edits, read them directly at that point — now you know exactly which ones matter, so you read three files instead of twenty.
+

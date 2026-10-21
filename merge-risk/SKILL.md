@@ -1,12 +1,15 @@
 ---
-name: "merge-risk"
-description: "Use when assessing the risk of merging a PR"
+name: merge-risk
+description: Assess integration risk for a local diff or locally imported change using
+  local requirements and evidence. Does not retrieve hosted pull requests or issues.
 metadata:
   credits:
     skill: pr
     author: Matt Pocock
-    url: "https://github.com/mattpocock/skills/blob/main/skills/engineering/pr/SKILL.md"
+    url: https://github.com/mattpocock/skills/blob/main/skills/engineering/pr/SKILL.md
 ---
+Assess a local diff or locally imported change only. Do not fetch hosted PRs or source issues; implement imports any required external context first. Save requested reports under `.factory/<feature>/review/`.
+
 Output format:
 
 ```
@@ -53,3 +56,4 @@ Score = Σ(score × weight) / Σ(weights).
 - high: ≥ 2.25
 
 Keep the numerical score and its calculations internal; do not include them in the output.
+
