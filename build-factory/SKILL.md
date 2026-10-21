@@ -1,12 +1,12 @@
 ---
-name: setup-matt-pocock-skills
+name: build-factory
 description: Configure local factory task storage and domain documentation for a repository.
   Uses local Markdown without hosted tracker setup, credentials, labels, or account
   access.
 disable-model-invocation: true
 ---
 
-# Set up the local workflow
+# Build Factory
 
 Inspect the current repository, its instructions, existing `.factory/` state, glossary, and architecture decisions. Reuse established local paths when the project defines them. Otherwise use `.factory/<feature>/` for per-feature work. Do not inspect service accounts or configure an external tracker.
 

@@ -2,11 +2,11 @@
   "version": 2,
   "imports": [
     {
-      "name": "setup-matt-pocock-skills",
+      "name": "build-factory",
       "repository": "mattpocock/skills",
       "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
       "source_path": "skills/engineering/setup-matt-pocock-skills",
-      "license_path": "setup-matt-pocock-skills/LICENSE",
+      "license_path": "build-factory/LICENSE",
       "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
       "files": {
         "SKILL.md": "f148858ffb7f63c03c06fca06e6fdb1d91a35c6b293244b8fdfacd5f4cc028c4",
@@ -19,12 +19,12 @@
       },
       "adaptations": {
         "SKILL.md": {
-          "sha256": "bc138b81e00d34c8fc2ff60410ff183830153d10a4890461f767a18d616b93dc",
-          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+          "sha256": "29b6f87d5460f12dc2b6f173356fbf5f8509cacc96b0cd649d73ad1c50e45954",
+          "reason": "Rename the local setup to build-factory and configure local task state; external source/delivery operations belong to implement."
         },
         "agents/openai.yaml": {
-          "sha256": "e75e26b4ba7456069050cb313214f2acbf31456909dcc21ab32ddcd1d82a4a31",
-          "reason": "Adapt the existing upstream workflow to local task state; external source/delivery operations belong to implement."
+          "sha256": "4cdc87deae731cc2097ca3e50fc9f73f6ca690ff95668cfe857a6ed4eebbad40",
+          "reason": "Rename the local setup to build-factory and configure local task state; external source/delivery operations belong to implement."
         },
         "issue-tracker-github.md": {
           "sha256": null,

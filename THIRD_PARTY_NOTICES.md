@@ -6,7 +6,7 @@ Existing skills retain their existing attribution; this table covers this import
 
 | Skill | Source at imported commit | License |
 | --- | --- | --- |
-| `setup-matt-pocock-skills` | [mattpocock/skills @ 5beb35b040e3](https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2/skills/engineering/setup-matt-pocock-skills) | [MIT](setup-matt-pocock-skills/LICENSE) |
+| `build-factory` | [mattpocock/skills @ 5beb35b040e3](https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2/skills/engineering/setup-matt-pocock-skills) | [MIT](build-factory/LICENSE) |
 | `to-spec` | [mattpocock/skills @ 5beb35b040e3](https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2/skills/engineering/to-spec) | [MIT](to-spec/LICENSE) |
 | `to-tickets` | [mattpocock/skills @ 5beb35b040e3](https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2/skills/engineering/to-tickets) | [MIT](to-tickets/LICENSE) |
 | `implement-spec` | [mattpocock/skills @ 5beb35b040e3](https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2/skills/engineering/implement-spec) | [MIT](implement-spec/LICENSE) |

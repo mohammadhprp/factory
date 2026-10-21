@@ -45,7 +45,7 @@ not authorize creating a PR/MR, commenting, changing labels, or closing it.
 
 | Work | Skills |
 | --- | --- |
-| Optional local conventions | `setup-matt-pocock-skills` |
+| Optional local conventions | `build-factory` |
 | Understand requirements | `research`, `grilling`, `domain-modeling` |
 | Specify and plan | `to-spec`, `to-tickets` |
 | Implement locally | `implement-spec`, `implement`, `new-feature`, `tdd` |

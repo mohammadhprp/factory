@@ -90,7 +90,7 @@ work without this repository's root file being installed in the consumer.
 
 | Task | Use |
 | --- | --- |
-| Configure local task storage and domain docs | `setup-matt-pocock-skills` |
+| Configure local task storage and domain docs | `build-factory` |
 | Research external facts or challenge an unsettled decision | `research`, `grilling` |
 | Capture agreed behavior and split substantial work | `to-spec`, then `to-tickets` |
 | Implement a specification's task graph | `implement-spec`, with `tdd` and `code-review` |
