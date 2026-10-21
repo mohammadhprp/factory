@@ -1,25 +1,17 @@
 ---
 name: write-tech-spec
-description: Write a TECH.md spec for a significant Warp feature after researching the current codebase and implementation constraints. Use when the user asks for a technical spec, implementation plan, or architecture doc tied to a product spec.
+description: Write a TECH.md spec for a significant feature after researching the current codebase and implementation constraints. Use when the user asks for a technical spec, implementation plan, or architecture doc tied to a product spec.
 ---
 
 # write-tech-spec
 
-Write a `TECH.md` spec for a significant feature in Warp.
+Write a `TECH.md` spec for a significant feature.
 
 ## Overview
 
 The tech spec should translate product intent into an implementation plan that fits the existing codebase, documents architectural choices, and makes the work easier for agents to execute and reviewers to evaluate.
 
-Write specs to `specs/<id>/TECH.md`, where `<id>` is one of:
-
-- a Linear ticket number (e.g. `specs/APP-1234/TECH.md`)
-- a GitHub issue id, prefixed with `gh-` (e.g. `specs/gh-4567/TECH.md`)
-- a short kebab-case feature name (e.g. `specs/vertical-tabs-hover-sidecar/TECH.md`)
-
-Match the id used by the sibling `PRODUCT.md` when one exists. `specs/` should contain only id-named directories as direct children.
-
-Ticket / issue references are optional. If the user has a Linear ticket or GitHub issue, use its id. If they don't, ask them for a feature name to use as the directory. Only create a new Linear ticket or GitHub issue when the user explicitly asks for one; in that case use the Linear MCP tools or `gh` CLI respectively (and `ask_user_question` if team, labels, or repo are unclear).
+Write specs to `.factory/<feature>/TECH.md`, using the active local feature slug. Reuse an explicitly supplied local directory. Source references are citations only; if an external task is needed, `implement` imports it first. Do not create or update issues or pages. Write local specifications without requiring a tracker, service credentials, or external IDs. Preserve existing files and link the local specification used by the implementation workflow.
 
 ## When to use
 
@@ -44,10 +36,9 @@ Required sections:
 3. **Testing and validation** — How the implementation will be verified against the product behavior. Owns everything about proving the feature works: unit tests, integration tests, manual steps, screenshots, videos, and any other verification. Reference the numbered Behavior invariants from `PRODUCT.md` directly rather than restating them; each important invariant should map to a concrete test or verification step. This section is where validation lives — `PRODUCT.md` intentionally does not have a Validation section.
 4. **Parallelization** — Actively evaluate whether parallel sub-agents (launched via `run_agents`) would meaningfully reduce wall-clock time or isolate work. Skip this section if `run_agents` is not available. When the spec proposes using sub-agents, include for each proposed agent:
    - A short name/role and the subtask it owns.
-   - Execution mode (`local` or `remote`) with a one-line rationale.
-   - For local agents: the working directory or git worktree it should use, so parallel agents do not collide on the same checkout or files.
-   - For remote agents: which environment to use or an explicit note that the agent will run in an empty environment.
-   - Branch and PR strategy: which branch each agent works on, the worktree path each agent will use, and how their work lands (one PR per agent, a single combined PR, etc.).
+   - Local execution scope with a one-line rationale.
+   - The working directory or git worktree it should use, so parallel agents do not collide on the same checkout or files.
+   - Local branch and integration strategy: which branch and worktree each agent owns, and how verified task changes integrate locally. Do not plan hosted reviews or publication.
    - Coordination boundaries: which files/services each agent owns and how it syncs with sibling agents (messaging, merge points, validation ownership).
 
    Distinguish which steps can run in parallel and which must run sequentially. When the dependency graph is non-trivial, consider a short Mermaid diagram (`graph TD` or `flowchart LR`) so the reader can see fan-out and merge points at a glance.
@@ -90,6 +81,6 @@ For large features, the implementer may optionally keep a `DECISIONS.md` file su
 
 ## Related Skills
 
-- `implement-specs`
+- `implement-spec`
 - `write-product-spec`
-- `spec-driven-implementation`
+- `to-tickets`

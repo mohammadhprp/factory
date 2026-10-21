@@ -1,3 +1,5 @@
+> Adapter reference for `implement` only. Import source requirements locally. Mutating commands below are reference material and require a separate explicit request; local task state never synchronizes automatically.
+
 # Issue tracker: GitLab
 
 Issues and specs for this repo live as GitLab issues. Use the [`glab`](https://gitlab.com/gitlab-org/cli) CLI for all operations.

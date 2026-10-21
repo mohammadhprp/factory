@@ -34,3 +34,4 @@ if [[ ! "$URL" =~ ^https?:// ]]; then
 fi
 
 echo "$URL"
+

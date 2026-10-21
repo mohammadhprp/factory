@@ -1,8 +1,14 @@
 ---
 name: gh
-description: Expert guidance for using the GitHub CLI (gh) to work with repositories, issues, pull requests, Actions, releases, and the GitHub API from the command line. Use this skill whenever the user needs to perform a GitHub workflow or asks to use gh.
+description: Adapter reference used only by implement for explicitly requested external
+  gh operations. Not a standalone factory workflow; local planning, review, and tracking
+  do not use this adapter.
 allowed-tools: Bash, Read, Grep, Glob
+disable-model-invocation: true
 ---
+
+> Use only under `implement` after an explicit external-source or delivery request. Reading a source does not authorize the mutation examples below. Verify destinations and replace example defaults with task settings.
+
 
 # GitHub CLI (`gh`) Skill
 
@@ -155,3 +161,4 @@ Use `gh <command> --help` and `gh api --help` when exact flags or endpoint behav
 - `gh run list` / `gh run view ID` / `gh run watch ID` — Actions workflows
 - `gh release list` / `gh release create TAG` — Release workflows
 - `gh api ENDPOINT` — GitHub REST or GraphQL API access
+

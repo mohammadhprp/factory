@@ -66,7 +66,8 @@ with sync_playwright() as p:
 
 1. **Inspect rendered DOM**:
    ```python
-   page.screenshot(path='/tmp/inspect.png', full_page=True)
+   # Create this task's local evidence directory before capture.
+   page.screenshot(path='.factory/<feature>/evidence/inspect.png', full_page=True)
    content = page.content()
    page.locator('button').all()
    ```

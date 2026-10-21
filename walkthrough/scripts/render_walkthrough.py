@@ -261,7 +261,7 @@ def render_html(data):
                 f"<figcaption>{esc(diagram['title'])}</figcaption>",
                 f'<div class="diagram-canvas" aria-label="{esc(diagram["title"])}"></div>',
                 f'<pre class="diagram-source"><code>{esc(diagram["source"])}</code></pre>',
-                '<p class="diagram-status" role="status">Diagram source; rendering requires an internet connection.</p>',
+                '<p class="diagram-status" role="status">Mermaid source for offline viewing.</p>',
                 "</figure>",
             ]
         for snippet in group.get("code", []):
@@ -300,25 +300,6 @@ def render_html(data):
         if data["limitations"]
         else "<p>None.</p>"
     )
-    if has_diagrams:
-        parts.append(
-            """<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs';
-mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:'dark'});
-for (const figure of document.querySelectorAll('.diagram')) {
-  const source = figure.querySelector('.diagram-source');
-  const status = figure.querySelector('.diagram-status');
-  try {
-    const {svg} = await mermaid.render(`walkthrough-${figure.dataset.diagram}`, source.textContent);
-    figure.querySelector('.diagram-canvas').innerHTML = svg;
-    source.hidden = true;
-    status.hidden = true;
-  } catch (_) {
-    status.textContent = 'Diagram could not be rendered. Mermaid source is shown below.';
-  }
-}
-</script>"""
-        )
     parts.append("</section></main></body></html>\n")
     return "\n".join(parts)
 
@@ -338,7 +319,7 @@ def default_output_dir(project):
         root = Path(result.stdout.strip())
     if not root.name:
         raise ValueError("Cannot determine a project name; pass --output-dir")
-    return Path.home() / ".stack" / root.name / "walkthrough"
+    return root / ".factory" / "review" / "walkthrough"
 
 
 def main():
@@ -386,3 +367,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -2,13 +2,13 @@
 
 These excerpts illustrate grouping and attention labels. Actual output includes
 the complete report structure in both Markdown and HTML, without emoji. Write
-`walkthrough.json` under `~/.stack/<project-name>/walkthrough/`, then validate and
+`walkthrough.json` under `.factory/<feature>/walkthrough/`, then validate and
 render it with the bundled scripts. See `references/schema.md` for a complete
 input example and the shared presentation standard.
 
 ## 1. Feature spanning implementation, configuration, tests, and docs
 
-Request: "Walk me through PR 42. It adds configurable session expiration."
+Request: "Walk me through the local session-expiration diff."
 
 Group the configuration contract, session logic, regression tests, and deployment
 documentation under `Feature — Configurable session expiration`, rather than
@@ -28,7 +28,7 @@ session policy. The code and tests alone cannot establish that policy.
 
 ## 2. MR containing an unrelated fix and refactor
 
-Request: "Explain MR 18 for me; the payment handler has several changes."
+Request: "Explain the locally imported payment patch."
 
 Create separate groups for `Bug fix — Reject duplicate payment requests` and
 `Refactor — Extract request parsing`, even if both modify the same handler.
@@ -60,4 +60,5 @@ its path and ask the reviewer to inspect it with an appropriate viewer.
 
 Do not manufacture warnings or an approval verdict when no concrete issue was
 identified. Deliver all groups together in `walkthrough.md` and `walkthrough.html`
-under `~/.stack/<project-name>/walkthrough/`.
+under `.factory/<feature>/walkthrough/`.
+

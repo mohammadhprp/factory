@@ -1,16 +1,15 @@
 ---
 name: handoff
-description: Compact the current conversation into a handoff document for another agent to pick up.
-argument-hint: "What will the next session be used for?"
+description: Save durable continuation notes in the local task directory so another
+  session can resume without a hosted tracker or temporary-directory dependency.
+argument-hint: What will the next session be used for?
 disable-model-invocation: true
 ---
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS (`$TMPDIR`, else `/tmp`; `%TEMP%` on Windows) - not the current workspace.
+# Local handoff
 
-Include a "suggested skills" section in the document, naming which skills the next agent should call the Skill tool for.
+Write `.factory/<feature>/handoff.md`, or the explicitly supplied persistent local path. Reuse the active feature directory and preserve earlier handoffs when they still contain relevant decisions. Do not default to an OS temporary directory or create a remote page.
 
-Do not duplicate content already captured in other artifacts (specs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
+Record the user's goal, local spec/task paths, repository and branch, base and current revision, uncommitted changes, completed acceptance checks and evidence, blockers, ownership, and the next concrete action. Include suggested skills for the next session. Reference existing local artifacts instead of duplicating them. Redact credentials and personal data.
 
-Redact any sensitive information, such as API keys, passwords, or personally identifiable information.
-
-If the user passed arguments, treat them as a description of what the next session will focus on and tailor the doc accordingly.
+Check that the referenced files exist and remain available after cleanup. Report the absolute handoff path. A handoff is context, not permission to discard changes, take over another task, publish work, or close an external issue.

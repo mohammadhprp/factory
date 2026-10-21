@@ -1,6 +1,7 @@
 ---
 name: to-tickets
-description: Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).
+description: Break a local specification, plan, or conversation into local task files
+  with acceptance criteria and explicit blocking edges under .factory/<feature>/tasks/.
 disable-model-invocation: true
 ---
 
@@ -8,13 +9,13 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets**: tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+Use `.factory/<feature>/spec.md` and one task file per slice under `.factory/<feature>/tasks/`. Reuse a supplied local task directory. No tracker configuration or credentials are required.
 
 ## Process
 
 ### 1. Gather context
 
-Work from whatever is already in the conversation context. If the user passes a reference (a spec path, an issue number or URL) as an argument, fetch it and read its full body and comments.
+Work from the conversation and supplied local specification or task files. Read the complete local requirements. If requirements exist only in an external task, route source import through `implement`; do not fetch the source yourself.
 
 ### 2. Explore the codebase (optional)
 
@@ -55,16 +56,11 @@ Ask the user:
 
 Iterate until the user approves the breakdown.
 
-### 5. Publish the tickets to the configured tracker
+### 5. Save the approved local tasks
 
-Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured; the tickets are the same either way, only the shape of the blocking edges changes:
+Write one file per task under `.factory/<feature>/tasks/<NN>-<slug>.md`, numbered from `01` in dependency order. Reuse established IDs; never overwrite another task. Use the local template below, a relative `Spec:` link, and blocking task IDs or relative paths. Set `Status: ready-for-agent` and `Owner: unclaimed` for actionable tasks. Use `blocked` when a known prerequisite prevents work.
 
-- **Local files** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Each file's "Blocked by" lists the numbers/titles it depends on. Use the per-ticket file template below: one ticket per file, never a single combined file.
-- **A real issue tracker (GitHub, Linear, …)** → publish one issue per ticket in dependency order (blockers first) so each ticket's blocking edges can reference real identifiers. Use the platform's native blocking relationship where it has one; otherwise set each ticket's "Blocked by" to the blocking issues. If the source was an existing issue, make each ticket its sub-issue (tracker doc's operation). Apply the `ready-for-agent` triage label unless instructed otherwise; the tickets are agent-grabbable by construction.
-
-Work the **frontier**: any ticket whose blockers are all done. For a purely linear chain that means top to bottom.
-
-Do NOT close or modify any parent issue.
+Work the frontier: tasks whose blockers are all `done`, whose status is `ready-for-agent`, and whose owner is `unclaimed`. A task with no blockers can start immediately. Reject missing dependencies and cycles before implementation. Keep state and decisions in these files; do not publish or synchronize them to a service.
 
 <local-ticket-template>
 
@@ -74,32 +70,17 @@ Do NOT close or modify any parent issue.
 
 **Blocked by:** the numbers/titles of the tickets that gate this one, or "None (can start immediately)".
 
+**Spec:** ../spec.md
+
 **Status:** ready-for-agent
+
+**Owner:** unclaimed
 
 - [ ] Acceptance criterion 1
 - [ ] Acceptance criterion 2
 
 </local-ticket-template>
 
-<issue-template>
 
-## Parent
 
-A reference to the parent issue on the tracker (if the source was an existing issue, otherwise omit this section).
-
-## What to build
-
-The end-to-end behaviour this ticket makes work, from the user's perspective, not layer-by-layer implementation.
-
-## Acceptance criteria
-
-- [ ] Criterion 1
-- [ ] Criterion 2
-
-## Blocked by
-
-- A reference to each blocking ticket, or "None (can start immediately)". Omit this section when blockers were set as native edges.
-
-</issue-template>
-
-In either form, avoid specific file paths or code snippets: they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts, not a working demo, just the important bits.
+In task behavior descriptions, avoid brittle implementation file paths or code snippets; retain the required local Spec and dependency paths: they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts, not a working demo, just the important bits.

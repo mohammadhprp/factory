@@ -1,19 +1,13 @@
-# Examples
+# Implementation sources
 
-## Implement a prepared task
+## Local task
 
-**User:** “Implement this Notion task: <task-page-url>.”
+Read `.factory/search/spec.md` and its local tasks, implement and verify in the assigned checkout. No service account, URL, push, or publication is required.
 
-Read the task properties, nested Spec brief, and required linked Jira details. Confirm the repository and a clean working tree. State the scope and verification plan, create a task branch following repository conventions, and make focused changes. Run checks and report the outcome, source URL, branch, and base. Leave service records unchanged and code uncommitted.
+## Explicit external task
 
-## Preserve an existing working tree
+For a supplied Jira, GitHub, GitLab, or Notion task, resolve the exact site and identity, retrieve necessary requirements, and save a local `source.md` with provenance. Plan, track, implement, and verify locally. Keep the source record unchanged.
 
-**User:** “Start the linked Notion login-validation task.”
+## Explicit delivery
 
-Read the requirements and inspect the repository. If unrelated edits exist, stop before switching branches and ask whether to continue with them or use an isolated worktree. Do not stash, reset, or silently carry the edits to a new branch.
-
-## Resume an existing branch
-
-**User:** “Continue the Notion task on its existing branch.”
-
-Verify the task identity, repository, branch contents, and current working tree before resuming. Do not recreate or reset the branch. Resolve material requirement conflicts before editing, then implement only the remaining scope and report checks actually run.
+When the user asks to publish this implementation as a PR/MR, verify the repository and target branch, publish only the task branch, and return the URL. Updating a source task's status is a separate requested action, not a consequence of local completion.

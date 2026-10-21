@@ -1,3 +1,5 @@
+> Adapter reference for `implement` only. Import source requirements locally. Mutating commands below are reference material and require a separate explicit request; local task state never synchronizes automatically.
+
 # Issue tracker: GitHub
 
 Issues and specs for this repo live as GitHub issues. Use the `gh` CLI for all operations.

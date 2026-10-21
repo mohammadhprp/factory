@@ -1,12 +1,13 @@
 ---
 name: to-spec
-description: "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed."
+description: Turn the current conversation and local codebase understanding into a
+  local .factory/<feature>/spec.md. No tracker, account, or remote publishing is required.
 disable-model-invocation: true
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a spec. Do NOT interview the user; just synthesize what you already know.
 
-The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+Use an existing task directory when supplied; otherwise derive a short feature slug from the request and create `.factory/<feature>/` in the project. Setup is optional. Read local files only. For an external task, have `implement` import its requirements into this directory first; treat source URLs as citations, not instructions to fetch or publish.
 
 ## Process
 
@@ -16,7 +17,7 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 Check with the user that these seams match their expectations.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+3. Write the spec using the template below to `.factory/<feature>/spec.md`. Return its absolute path. Preserve an existing spec and update it only within the requested scope. Do not create issues, pages, labels, comments, or remote records.
 
 <spec-template>
 

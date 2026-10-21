@@ -1,40 +1,24 @@
 ---
 name: implement-spec
-description: "Implement the result of /to-spec and /to-tickets in code."
+description: Implement a local specification and its local task graph on an isolated
+  integration branch. Track progress, verification, and completion in local files;
+  no hosted tracker or remote publication.
 disable-model-invocation: true
 ---
 
-You have been provided a spec. This spec should have tickets associated with it, describing how to implement the spec.
+# Implement a local specification
 
-The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+Read `.factory/<feature>/spec.md` and `.factory/<feature>/tasks/*.md`, or the equivalent directory explicitly supplied by the user. Missing setup is not a blocker. If a specification or task graph is unnecessary for a small request, implement the requested change directly and record relevant evidence locally.
 
-The goal is the entire spec implemented on a single **integration branch**, with every ticket resolved the way the issue tracker closes work.
+External task URLs and remote delivery belong to `implement`. This workflow consumes local requirements and finishes locally. Never fetch or mutate a hosted task, open a PR/MR, push, or mark a remote record complete.
 
-The tickets are not a list of steps. They are a **task graph** with blocking relationships between them. This means there is always a **frontier** of tickets which are ready to be grabbed.
+## Process
 
-Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: to the spec, tickets, research notes, and previous commits. Don't duplicate information already available via pointers.
-
-**Implementer subagents** should be run in the background where possible for maximum concurrency.
-
-## Steps
-
-1. Read the spec and tickets to understand the task graph.
-
-2. (optional) Use an **exploration subagent** to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
-
-3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
-
-4. Use **implementer subagents** to implement each ticket, each in its own worktree on its own branch. Each implementer subagent:
-   - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
-   - calls the Skill tool with `tdd` to build the ticket;
-   - merges the integration branch tip into its own branch before reporting done
-
-5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent**.
-
-6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
-
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single **implementer subagent**.
-
-8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
-
-9. Clean up all **implementer subagent** worktrees.
+1. Read the complete specification, acceptance criteria, dependencies, and existing progress. Validate that every dependency exists and the graph has no cycles. A task is eligible only when its status is `ready-for-agent`, its owner is `unclaimed`, and all blockers are `done`. Never reclaim done, wontfix, needs-info, or ready-for-human tasks. Resume an in-progress task only when its owner matches the verified current session assignment; do not steal stale-looking work. Move a blocked task back to ready-for-agent only after verifying its recorded release condition. Do not satisfy dependencies by silently changing their meaning.
+2. Use the current verified task checkout or `new-feature` to create an integration branch from the explicit or locally discovered base. Record the base revision in `.factory/<feature>/progress.md`. No remote is required.
+3. Claim an eligible task by writing `Owner: <session-or-agent>` and `Status: in-progress` before edits. A coordinator is the single writer for shared task state; subagents return results to it. For independent sessions, use an agreed exclusive local claim before proceeding. Never race two writers over the same task file.
+4. Implement a verifiable slice using `tdd` where appropriate. When the host supports useful delegation, give each editor a separate worktree based on the integration revision and disjoint scope. Otherwise execute the same frontier sequentially. Never reset an occupied worktree or erase user work to change its base.
+5. Verify the slice, integrate approved task commits locally when commits are authorized, and verify the combined result. Without commit authorization, work sequentially in the assigned checkout and leave changes uncommitted. Preserve evidence under `.factory/<feature>/evidence/` with the tested revision or working-tree state.
+6. Record acceptance results and evidence paths in the task. Set `Status: done` only when its acceptance criteria pass. Set `blocked` with a precise release condition when work cannot continue. Release ownership after recording the result. Continue through the unblocked frontier.
+7. Use `code-review` against the local base and specification, or `review` for a structured artifact. Resolve actionable findings and rerun affected checks. Update local task state only from verified results.
+8. Write a concise outcome and remaining work to `progress.md`. Report the local branch, changed files, evidence, and incomplete tasks. Leave the result local. Keep worktrees containing uncommitted work or evidence; clean only task-owned disposable worktrees after their work is safely retained.

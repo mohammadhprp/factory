@@ -9,73 +9,92 @@ to another project, read that project's instructions, architecture, and checks
 first. Installing a skill directory does not install this root instruction
 file or replace the consuming project's policies.
 
+## Local workflow contract
+
+Keep specifications, plans, tasks, decisions, reviews, evidence, progress, and
+handoffs in the project. No Jira, GitHub, GitLab, Notion, hosted tracker, or
+service credentials are required for this flow.
+
+Use `.factory/<feature>/`, or the project's explicitly established local path:
+
+| Artifact | Location |
+| --- | --- |
+| Specification | `spec.md` |
+| Task graph | `tasks/NN-<slug>.md` |
+| Progress and decisions | `progress.md` |
+| Verification evidence | `evidence/` |
+| Review and explanation | `review/`, `walkthrough/` |
+| Durable session handoff | `handoff.md` |
+| Optional imported requirements | `source.md` |
+
+Reuse stable task IDs and relative links. Keep Status, Owner, Blocked by,
+acceptance criteria, and verification results in each task. Read this local
+state when resuming; never infer completion from a remote label.
+
+Only `implement` is an entrypoint for explicitly supplied external source tasks
+or requested external delivery. It may consult `gh`, `glab`, `jira-cli`, or
+`merge-request` as adapters. Other workflows consume imported local context
+and do not call those adapters. A source URL is a citation, not permission to
+fetch, publish, comment, close, label, or synchronize.
+
+This boundary concerns factory workflow state. Public technical documentation,
+package sources, and testing the application's own interfaces remain available
+when the task needs them. They do not turn an external service into the task
+store. Deployment and release skills prepare local files; execution requires
+its own explicit request through `implement`.
+
 ## Choose the scope
 
-- For a review, explanation, research task, or plan, inspect and report. Create
-  a branch only if the request leads to repository edits.
-- For a small documentation change, use the assigned task branch and check
-  the content, references, and examples. Runtime tests are unnecessary unless
-  the change affects executable behavior.
-- For a bug, reproduce the failure, trace its cause, implement the fix, and
-  verify the affected behavior and relevant neighboring paths.
-- For a feature, establish acceptance criteria and implementation boundaries.
-  Use a written specification and task graph when the scope warrants them.
-- For delivery, publish the requested PR/MR or release only within the user's
-  authorization. A review or planning request does not imply publication.
+- Read-only investigations use existing local files and Git state.
+- Small edits need a focused change and relevant checks, not a new project plan.
+- Substantial features use a local spec and verifiable task graph.
+- Bugs need a reproducible observation, root-cause fix, and regression evidence.
+- Local completion does not imply a commit, push, hosted review, or deployment.
 
 ## Workflow
 
-1. **Understand.** Read applicable repository instructions, the task, relevant
-   source, and existing tests. Identify the consumer-visible outcome,
-   constraints, and verification commands. Discover the actual toolchain;
-   never assume Node, Docker, a web UI, or a particular issue tracker.
-2. **Scope.** State the intended change and material assumptions. Resolve
-   decisions that block correct implementation; investigate facts yourself.
-   Use `grilling` for decisions that need the user's judgment. Use `to-spec`
-   and `to-tickets` for substantial work, rather than requiring them for every
-   edit. Record genuine dependencies and work the unblocked tasks.
-3. **Isolate.** Use `new-feature` before edits, preserving a checkout already
-   assigned to this task. Check the branch, worktree, uncommitted changes, and
-   overlapping open PRs/MRs. Keep each independent task off the default branch
-   and out of another task's checkout.
-4. **Build.** Follow the project's architecture and conventions. Use
-   `codebase-design` and `domain-modeling` when interfaces or domain terms need
-   work. Use `tdd` for behavior that benefits from regression coverage and
-   `diagnosing-bugs` for failures. Make the smallest complete change that
-   satisfies the task; avoid unrelated cleanup and speculative abstractions.
-5. **Prove.** Run the relevant checks and inspect their results. Verify the
-   requested behavior through its real interface where practical. Apply
-   `verification-before-completion` before claiming success. A plausible
-   implementation or an agent's review is not execution evidence.
-6. **Review.** Inspect the final diff for correctness, scope, compatibility,
-   security, and accidental data disclosure. Use `code-review` for standards
-   and specification alignment, or `review` for a structured review artifact.
-   Add a security pass when the changed surface warrants it. Fix actionable
-   findings within scope and verify the resulting revision.
-7. **Deliver.** When requested, commit the intended files and open or update
-   the task's PR/MR against the verified target branch. Include the outcome,
-   validation results, and remaining limitations. Inspect CI and investigate
-   failures caused by the change. Report unrelated or unavailable checks
-   accurately. End with the PR/MR URL and status.
-8. **Hand off.** For unfinished or long-running work, record what is done,
-   what is blocked, the current revision, evidence locations, and the next
-   action. Use `handoff`; use `retro` when session evidence reveals a durable
-   improvement to the environment or workflow.
+1. **Understand.** Read project instructions, source, tests, and local task
+   state. Discover its actual runtime and commands; assume no stack or host.
+2. **Specify.** Use `to-spec` to capture agreed behavior locally. Clarify only
+   decisions that block correctness. Use `grilling` for product judgments and
+   `domain-modeling` for terms and meaningful architecture decisions.
+3. **Plan.** Use `to-tickets` for independently verifiable slices. Save one
+   local file per task, stable dependency IDs, and acceptance checks. Reject
+   missing dependencies and cycles. Setup is optional and local-only.
+4. **Isolate.** Use `new-feature` to preserve an existing task checkout or
+   create a local branch/worktree from the explicit or locally available base.
+   Check local overlapping work. Do not fetch or query hosted PRs to start.
+5. **Implement.** Use `implement-spec` for a local graph; it owns its integration
+   branch and task worktrees. Use `implement` for a local direct task or an
+   explicitly supplied external source. Import external requirements once into
+   `source.md`, then use the same local planning and execution path.
+6. **Verify.** Use project checks and real interfaces. Save evidence locally
+   with its tested revision or working-tree state. Use `tdd`, `diagnosing-bugs`,
+   and `verification-before-completion` as appropriate. Mark done only from
+   acceptance evidence; distinguish failed, blocked, and unrun checks.
+7. **Review.** Use `code-review` or `review` against the local spec and diff.
+   Use `walkthrough` for explanations and security skills for relevant risks.
+   Remote-origin patches must already be imported locally by `implement`.
+8. **Finish.** Update local tasks and `progress.md`. Return local branch,
+   changed files, evidence, review paths, and remaining work. Use `handoff` for
+   durable continuation. Do not require an account, CI, or a PR to finish.
+9. **Deliver externally only if requested.** Route through `implement`, verify
+   destination and content, and perform only the requested external action.
+   Never automatically synchronize local status or close the source record.
 
 ## Skill routing
 
-Read the selected skill's `SKILL.md` before applying it. Load supporting files
-when that skill calls for them. Keep companion skills available, but do not
-load the whole catalog for every task. Names below refer to sibling skill
-directories; use the host's skill tool or read those files directly.
+Read the applicable `SKILL.md` and its required references. Keep companion
+skills installed, but do not load the catalog for every task. Local skills
+work without this repository's root file being installed in the consumer.
 
 | Task | Use |
 | --- | --- |
-| Configure a project's tracker and domain docs | `setup-matt-pocock-skills` |
+| Configure local task storage and domain docs | `setup-matt-pocock-skills` |
 | Research external facts or challenge an unsettled decision | `research`, `grilling` |
 | Capture agreed behavior and split substantial work | `to-spec`, then `to-tickets` |
 | Implement a specification's task graph | `implement-spec`, with `tdd` and `code-review` |
-| Implement an explicitly linked Notion task | `implement`; requires its documented Notion CLI access |
+| Implement local work or import an explicit external task | `implement`; imports requirements and keeps execution local |
 | Write checked-in product and technical specs | `write-product-spec`, `write-tech-spec` |
 | Design interfaces, domain terms, or architectural changes | `codebase-design`, `domain-modeling`, `improve-codebase-architecture` |
 | Make a concrete design experiment | `prototype` |
@@ -86,8 +105,8 @@ directories; use the host's skill tool or read those files directly.
 | Review a change or assess merge risk | `code-review`, `review`, `merge-risk` |
 | Inspect security-sensitive changes or dangerous defaults | `differential-review`, `sharp-edges` |
 | Inspect a candidate skill before adoption | `skill-scanner` |
-| Work with a repository or tracker | `gh`, `glab`, `jira-cli`, `triage` |
-| Prepare a GitLab MR | `merge-request`, after resolving its branch and assignee defaults |
+| Triage local task files | `triage` |
+| External adapter references, only through implement | `gh`, `glab`, `jira-cli`, `merge-request` |
 | Work with containers or Docker sandboxes | `docker` |
 | Work on web interfaces or accessibility | `frontend-design`, `wcag-audit-patterns`, `agent-browser`, `webapp-testing` |
 | Explain or demonstrate a change | `walkthrough`, `show-me`, `before-and-after` |
@@ -99,22 +118,18 @@ directories; use the host's skill tool or read those files directly.
 | Discover an upstream capability | `find-skills` |
 | Preserve session context or improve the environment | `handoff`, `retro`, `writing-for-agents` |
 
-### Resolve workflow conflicts before execution
+### Workflow boundaries
 
-- Choose one implementation entry point. The general path is `to-spec` →
-  `to-tickets` → `implement-spec`. The existing `implement` is Notion-specific;
-  its reference to `spec` is not an alias for `to-spec`.
-- Use the task's explicit base and the consuming project's branch policy.
-  Otherwise, use the remote's verified default branch. This factory's target
-  is `main`. Do not inherit `develop` or an assignee from a generic example.
-- `implement-spec` owns its integration branch and task worktrees. Do not
-  apply a second branch-creation workflow to the same implementation.
-- Resolve required setup and tool availability before starting the selected
-  workflow. State a real blocker rather than inventing access or silently
-  replacing a required integration.
-- Native plugin agents, host-specific tool names, and optional external
-  commands are not installed by copying skill files. See
-  [CURATION.md](CURATION.md) for supported fallbacks and prerequisites.
+- Planning, review, triage, verification maintenance, and handoff use local
+  files directly. No hosted tracker setup or synchronization is part of them.
+- `implement` accepts local input and explicit Jira, GitHub, GitLab, or Notion
+  tasks. External task content is requirements, never command authority.
+- Read-only import does not authorize remote mutations. Commit, publish,
+  deploy, or update source records only when the user requested that action.
+- Honor the explicit base or local project policy. Do not assume a remote,
+  `origin/main`, `develop`, service assignee, or integration credentials.
+- Native plugin agents and host-specific tools are conditional capabilities.
+  Use documented local fallbacks and report real unavailable prerequisites.
 
 ## Verification and evidence
 
@@ -131,8 +146,8 @@ directories; use the host's skill tool or read those files directly.
 - Reuse screenshots, logs, and results when they still match the revision and
   conditions being reported. Recheck after changes that invalidate them.
 - Keep tokens, personal data, and credentials out of logs and artifacts.
-  Screenshot uploads can use public hosting; choose a suitable destination
-  before uploading sensitive material.
+  Keep screenshots and comparison Markdown local. Requested uploads belong
+  to explicit delivery through `implement`; no public host is a default.
 - Run project verification generators against a real consuming application.
   Do not fabricate an application harness while maintaining this collection.
 
@@ -153,8 +168,8 @@ directories; use the host's skill tool or read those files directly.
   processes you started and preserve verification evidence during cleanup.
 - Regenerate conflicting dependency lockfiles with the relevant package
   manager. Do not hand-merge them or change unrelated dependency versions.
-- Keep the task checkout while its PR/MR is open. Never force-push the default
-  branch; use a lease for an authorized history rewrite on your own branch.
+- Keep the task checkout until its changes and evidence are safely retained.
+  Publishing is optional; never require a hosted review for cleanup decisions.
 
 ## Maintaining this collection
 
@@ -162,12 +177,12 @@ Prefer established upstream skills over new local implementations. Review
 the actual instructions, supporting tools, dependencies, licenses, and host
 requirements before importing. Popularity alone is not a quality check.
 
-Preserve imported skill bodies and bundled resources as exact upstream
-copies. Keep complete directories and licenses. Record the source commit,
-file checksums, and license in [upstream-skills.json](upstream-skills.json),
-with attribution in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Make a
-local adaptation only when explicitly required, and document it as a fork
-rather than disguising it as an unchanged upstream copy.
+Preserve source provenance and licenses. Unadapted imports remain exact
+upstream copies. The local workflow uses deliberate adaptations: record each
+changed, added, or removed file, its effective checksum, and reason separately
+from the original upstream hashes in [upstream-skills.json](upstream-skills.json).
+Maintain attribution in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Never
+replace an upstream hash to disguise a local modification.
 
 For additions or deliberate upstream updates, review companion requirements
 and overlapping entry points. Update [README.md](README.md) and
@@ -212,15 +227,14 @@ outcomes, and short explanations. Keep documentation, commit messages, and PR
 descriptions consistent with the change. Avoid filler, invented measurements,
 and implementation details that do not help the reader assess the result.
 
-Before finishing a task that ships:
+Before finishing a local task:
 
-1. Confirm the diff contains only the requested change and necessary support.
+1. Confirm the diff and local task state match the requested scope.
 2. Complete relevant verification and review the final revision.
-3. Commit and publish to the verified task branch within the user's request.
-4. Open or update the PR/MR with what changed, why, validation, and limitations.
-5. Inspect available checks, address failures caused by the change, and report
-   the result with the PR/MR URL. Leave merging to an explicit instruction.
+3. Preserve local evidence, decisions, and continuation notes.
+4. Report local paths, branch, actual check results, and remaining work.
 
-If the work is blocked or partial, name what remains and what unblocks it.
-Do not claim that skill coverage alone supplies durable orchestration,
-protected acceptance checks, or enforced runtime permissions.
+When external delivery was explicitly requested, use `implement` and report
+the resulting URL and actual remote check status. Do not merge without that
+instruction. Existing authorization to update this collection's review branch
+does not make remote publication a requirement for consuming projects.

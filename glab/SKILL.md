@@ -1,8 +1,14 @@
 ---
 name: glab
-description: Expert guidance for using the GitLab CLI (glab) to manage GitLab issues, merge requests, CI/CD pipelines, repositories, and other GitLab operations from the command line. Use this skill when the user needs to interact with GitLab resources or perform GitLab workflows.
+description: Adapter reference used only by implement for explicitly requested external
+  glab operations. Not a standalone factory workflow; local planning, review, and
+  tracking do not use this adapter.
 allowed-tools: Bash, Read, Grep, Glob
+disable-model-invocation: true
 ---
+
+> Use only under `implement` after an explicit external-source or delivery request. Reading a source does not authorize the mutation examples below. Verify destinations and replace example defaults with task settings.
+
 
 # GitLab CLI (glab) Skill
 
@@ -220,3 +226,4 @@ For detailed troubleshooting, load **references/troubleshooting.md**.
 - Use `--output=json` for scripting and automation
 - Multiple GitLab accounts can be authenticated simultaneously
 - Commands respect Git configuration and current repository context
+

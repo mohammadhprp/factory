@@ -52,7 +52,7 @@ git diff <base>..<head> --stat
 git log <base>..<head> --oneline
 
 # For PR
-gh pr view <number> --json files,additions,deletions
+git diff --stat <local-base>...HEAD
 
 # Get all changed files
 git diff <base>..<head> --name-only

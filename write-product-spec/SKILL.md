@@ -1,11 +1,11 @@
 ---
 name: write-product-spec
-description: Write a PRODUCT.md spec for a significant user-facing feature in Warp, focused on detailed behavior and validation. Use when the user asks for a product spec, desired behavior doc, or PRD, wants to define feature behavior before implementation, or when the feature is substantial or behaviorally ambiguous enough that a written spec would improve implementation or review.
+description: Write a PRODUCT.md spec for a significant user-facing feature, focused on detailed behavior and validation. Use when the user asks for a product spec, desired behavior doc, or PRD, wants to define feature behavior before implementation, or when the feature is substantial or behaviorally ambiguous enough that a written spec would improve implementation or review.
 ---
 
 # write-product-spec
 
-Write a `PRODUCT.md` spec for a significant feature in Warp.
+Write a `PRODUCT.md` spec for a significant feature.
 
 ## Overview
 
@@ -22,29 +22,15 @@ The spec should describe behavior from that consumer's perspective: the shape of
 
 Implementation details, validation, and test planning live in a companion `TECH.md`, produced by the `write-tech-spec` skill. Writing the product spec is usually the first step of a two-step process: once `PRODUCT.md` is agreed on, invoke `write-tech-spec` to produce `TECH.md` for the same feature (or let the user know that's the expected next step). The product spec should be written so the tech spec can be written directly from it.
 
-Write specs to `specs/<id>/PRODUCT.md`, where `<id>` is one of:
-
-- a Linear ticket number (e.g. `specs/APP-1234/PRODUCT.md`)
-- a GitHub issue id, prefixed with `gh-` (e.g. `specs/gh-4567/PRODUCT.md`)
-- a short kebab-case feature name (e.g. `specs/vertical-tabs-hover-sidecar/PRODUCT.md`)
-
-`specs/` should contain only id-named directories as direct children — no engineer-named subdirectories.
-
-Ticket / issue references are optional. If the user has a Linear ticket or GitHub issue, use its id. If they don't, ask them for a feature name to use as the directory. Only create a new Linear ticket or GitHub issue when the user explicitly asks for one; in that case use the Linear MCP tools or `gh` CLI respectively (and `ask_user_question` if team, labels, or repo are unclear).
+Write specs to `.factory/<feature>/PRODUCT.md`, using the active local feature slug. Reuse an explicitly supplied local directory. Source references are citations only; if an external task is needed, `implement` imports it first. Do not create or update issues or pages. Write local specifications without requiring a tracker, service credentials, or external IDs. Preserve existing files and link the local specification used by the implementation workflow.
 
 ## Before writing
 
-Gather only the context you need: directory id (Linear ticket, GitHub issue, or feature name), feature summary, target users, key behaviors, edge cases, and how the feature will be validated. Use `ask_user_question` for missing context rather than guessing.
+Gather only the context you need: local feature slug or supplied local directory, feature summary, target users, key behaviors, edge cases, and how the feature will be validated. Use `ask_user_question` for missing context rather than guessing.
 
-### Figma mocks
+### Design context
 
-If the feature has any UI or interaction design, ask the user whether a Figma mock exists before drafting the Behavior section, and include the link in the spec when one is provided. A mock is often the most reliable source of truth for visual states, spacing, and edge-case layouts — not asking can cause the Behavior section to guess at intent the designer already settled.
-
-- If the user provides a link, include it under a short `## Figma` section (or inline near the top of Behavior) as `Figma: <link>`.
-- If the user confirms no mock exists, note `Figma: none provided` so the absence is explicit rather than ambiguous.
-- If the feature is purely backend (data model, API, CLI with no visual surface), skip the question and omit the section.
-
-Do not silently drop design context; an explicit "none" is preferable to no mention at all on features where design would normally be expected.
+Use supplied local mockups, screenshots, or design exports when relevant. Preserve source design links as citations. Missing design context must not require an external account; record the gap and clarify only behavior that blocks a correct specification.
 
 ## Structure
 
@@ -107,9 +93,9 @@ For large features, the implementer may optionally keep a `DECISIONS.md` file su
 
 ## Related Skills
 
-- `implement-specs`
+- `implement-spec`
 - `write-tech-spec`
-- `spec-driven-implementation`
+- `to-tickets`
 
 ## Example Behavior section
 

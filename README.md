@@ -1,80 +1,105 @@
 # Factory
 
-A curated collection of upstream agent skills for software delivery across languages, frameworks, and platforms. This repository distributes instructions and supporting tools; it is not an autonomous execution service.
+A curated collection of upstream agent skills for a local software factory,
+across languages, frameworks, and platforms.
 
-## Start here
+## Local by default
 
-Install only the skills needed for a project. The collection includes optional web, GitHub, GitLab, Docker, and agent-host integrations; none is a requirement for every project.
+The full flow runs in your project:
 
-With the Skills CLI, select skills from this repository:
+`conversation → local spec → local tasks → local implementation → local verification → local review → local handoff`
+
+No Jira, GitHub, GitLab, Notion, hosted tracker, or service account is required.
+The files under `.factory/<feature>/` are the execution record. Source URLs
+are citations, and local task status never automatically synchronizes outward.
+
+| File or directory | Purpose |
+| --- | --- |
+| `spec.md` | Agreed behavior and scope |
+| `tasks/NN-<slug>.md` | Task state, dependencies, owner, acceptance checks |
+| `progress.md` | Current revision, decisions, blockers, next action |
+| `evidence/` | Verification results and screenshots |
+| `review/`, `walkthrough/` | Local review and explanation artifacts |
+| `handoff.md` | Durable continuation context |
+| `source.md` | Optional imported requirements with provenance |
+
+Use an established local project convention instead when explicitly supplied.
+Setup is optional; create only artifacts the task needs. For a local-only Git
+repository, use an existing local base without fetching a remote.
+
+## The external exception: implement
+
+`implement` accepts a local task, conversation request, or an explicitly
+supplied Jira, GitHub, GitLab, or Notion task. For an external source it reads
+necessary requirements, records them in local `source.md`, and then follows
+the same local workflow. It may use connected integrations or authenticated
+provider CLIs. Missing external access blocks only an external source that
+actually needs it, never local work.
+
+Remote publication is optional and requires an explicit request. `implement`
+is the only external workflow entrypoint and uses `gh`, `glab`, `jira-cli`,
+and `merge-request` only as adapter references. Reading an external task does
+not authorize creating a PR/MR, commenting, changing labels, or closing it.
+
+## Choose the skills
+
+| Work | Skills |
+| --- | --- |
+| Optional local conventions | `setup-matt-pocock-skills` |
+| Understand requirements | `research`, `grilling`, `domain-modeling` |
+| Specify and plan | `to-spec`, `to-tickets` |
+| Implement locally | `implement-spec`, `implement`, `new-feature`, `tdd` |
+| Diagnose failures | `diagnosing-bugs` |
+| Architecture | `codebase-design`, `improve-codebase-architecture`, `prototype` |
+| Verify | `create-verification-skill`, `maintain-verification-skill`, `verification-before-completion` |
+| Review locally | `code-review`, `review`, `merge-risk`, `walkthrough` |
+| Security | `differential-review`, `sharp-edges`, `skill-scanner` |
+| Local visual evidence | `agent-browser`, `webapp-testing`, `before-and-after`, `show-me` |
+| Optional interface design | `frontend-design`, `wcag-audit-patterns` |
+| Delivery preparation | `deployment-pipeline-design`, `changelog-automation` |
+| Operations methodology | `incident-runbook-templates`, `postmortem-writing`, `triage` |
+| Evaluation and improvement | `benchmark-checklist`, `llm-evaluation`, `skill-creator`, `retro` |
+| Continuity | `handoff` |
+
+Read [AGENTS.md](AGENTS.md) for the full routing and execution rules, and
+[CURATION.md](CURATION.md) for source choices and compatibility limits.
+Optional platform-specific examples are not mandatory factory infrastructure.
+
+## Install
+
+Select the required skills with the Skills CLI, or copy their complete folders
+into the consuming project's established skill directory:
 
 ```sh
 npx skills add mohammadhprp/factory --skill to-spec --skill to-tickets --skill implement-spec
 ```
 
-Alternatively, copy the chosen skill directories into the consuming project's established skill directory, such as `.agents/skills/`. Copy each entire directory, including references, scripts, assets, and license. Keep companion skill names unchanged. Check the chosen host's support for frontmatter extensions and tool names before installation.
+Include companions: `implement-spec` uses `tdd` and `code-review`; architecture
+and TDD use `codebase-design`. Root instructions are not automatically copied
+with installed skill directories, so the adapted entrypoints carry their own
+local behavior. Use a host supporting the chosen tools and frontmatter.
 
-Read [CURATION.md](CURATION.md) for selection decisions, dependencies, compatibility limits, and the remaining infrastructure gaps. Exact imported revisions and file checksums live in [upstream-skills.json](upstream-skills.json). Licenses and attribution are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## Sources and adaptations
 
-## Suggested workflow
+The collection contains 52 skills, including 33 imports from established
+upstreams. Original source revisions and hashes remain in
+[upstream-skills.json](upstream-skills.json). Explicit local adaptations have
+separate effective hashes and reasons; unchanged resources retain their
+original hashes. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) preserves
+licenses and attribution. `skills-lock.json` is older Skills CLI provenance,
+not the effective adaptation manifest.
 
-1. Configure the consuming project with `setup-matt-pocock-skills`. It supports GitHub, GitLab, local Markdown, and documenting another tracker. Do not run it merely to install this collection.
-2. Explore relevant code and clarify decisions using `improve-codebase-architecture`, `codebase-design`, `domain-modeling`, and the existing `research` and `grilling` skills as appropriate. Small changes do not need every stage.
-3. Use `to-spec` to capture agreed behavior, then `to-tickets` to produce verifiable slices with explicit dependencies.
-4. Use `new-feature` for isolated editing tasks. For a connected task graph, `implement-spec` manages its own integration branch and task worktrees; do not independently apply competing branch rules.
-5. Use `tdd` for behavior-focused implementation and `diagnosing-bugs` for reproducible failures.
-6. Use `create-verification-skill` to establish a project-specific launch, drive, evidence, and cleanup workflow. Use `maintain-verification-skill` to keep it accurate. Use `verification-before-completion` before claiming success.
-7. Use `code-review` for specification and standards alignment; the existing `review` skill produces structured review artifacts. Add `differential-review` or `sharp-edges` when security scope warrants them.
-8. Prepare delivery with `deployment-pipeline-design` and `changelog-automation`. Use `incident-runbook-templates`, `postmortem-writing`, and `triage` to feed operational findings back into development.
-9. Use `handoff` for session continuity and `retro` for improvements to the engineering environment. Use `skill-creator` for controlled skill evaluations and `benchmark-checklist` for credible performance measurements.
-
-These are selectable workflows, not a rule to load every skill into every task. Follow the consuming project's instructions and the user's actual authorization.
-
-## Added capabilities
-
-| Area | Skills | Upstream |
-| --- | --- | --- |
-| Project configuration and intake | `setup-matt-pocock-skills`, `triage` | Matt Pocock |
-| Specifications and task graphs | `to-spec`, `to-tickets`, `implement-spec` | Matt Pocock |
-| Architecture and domain understanding | `codebase-design`, `domain-modeling`, `improve-codebase-architecture`, `prototype` | Matt Pocock |
-| Behavior tests and debugging | `tdd`, `diagnosing-bugs`, `code-review` | Matt Pocock |
-| Continuity and learning | `handoff`, `retro`, `writing-for-agents` | Matt Pocock |
-| Project verification | `create-verification-skill`, `maintain-verification-skill` | pstack |
-| Performance evidence | `benchmark-checklist` | pstack |
-| Completion evidence | `verification-before-completion` | Superpowers |
-| Security | `differential-review`, `sharp-edges` | Trail of Bits |
-| Delivery and release preparation | `deployment-pipeline-design`, `changelog-automation` | wshobson/agents |
-| Operations | `incident-runbook-templates`, `postmortem-writing` | wshobson/agents |
-| Evaluation of LLM components | `llm-evaluation` | wshobson/agents |
-| Optional interface quality | `wcag-audit-patterns` | wshobson/agents |
-| Optional web design and testing | `frontend-design`, `webapp-testing` | Anthropic |
-| Skill evaluation and maintenance | `skill-creator` | Anthropic |
-| Skill supply-chain inspection | `skill-scanner` | Sentry |
-| Optional checked-in product and technical specs | `write-product-spec`, `write-tech-spec` | Warp |
-
-The existing 19 skills remain available. The Notion-specific `implement` workflow is an alternative for explicitly linked Notion tasks, rather than the general implementation entry point.
-
-## Validate this collection
-
-Python 3.12 and PyYAML are sufficient for the collection checks:
+## Validate
 
 ```sh
 python -m pip install PyYAML==6.0.3
 python scripts/validate_collection.py
+python -m unittest discover -s tests -v
 ```
 
-Validation checks metadata, imported file integrity, licenses, local links in imported skill entry points, Python syntax, and the existing skill lock's referenced directories. It does not run project workloads, contact production services, or establish that a skill succeeds on every agent host.
-
-To inspect one skill with the vendored scanner:
-
-```sh
-python skill-scanner/scripts/scan_skill.py ./to-spec
-```
-
-Scanner matches require review: security documentation intentionally contains attack examples. Do not equate a pattern match with a malicious skill or a clean scan with a security guarantee.
-
-## Updating upstream imports
-
-Select a new upstream commit, review the changed skill and its dependencies, and copy the complete selected directory. Retain its license. Update the matching entry and SHA-256 values in `upstream-skills.json`, then validate and open a PR. Do not silently modify imported skill bodies: make a deliberate fork with documented changes if adaptation becomes necessary.
-
-The older `skills-lock.json` is retained for its existing Skills CLI provenance; `upstream-skills.json` tracks this curated import batch. These are distinct formats and are not interchangeable.
+Validation checks metadata, import/adaptation integrity, licenses, links,
+and syntax. Regression checks cover local workflow boundaries and offline
+report generation. These checks do not prove model effectiveness or every
+project runtime. Local validation runs without a service account. An optional
+GitHub Actions job runs the same checks for this collection's review process;
+CI and PR publication are not prerequisites for using the factory.

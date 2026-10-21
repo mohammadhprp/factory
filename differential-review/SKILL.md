@@ -6,6 +6,8 @@ allowed-tools: Read Write Grep Glob Bash
 
 # Differential Security Review
 
+Use local Git state and imported local context only. Save reports under `.factory/<feature>/review/`. Source issue/PR references are citations; only `implement` retrieves them. Native plugin integrations and external report publication are not part of this workflow.
+
 Security-focused code review for PRs, commits, and diffs.
 
 ## Core Principles

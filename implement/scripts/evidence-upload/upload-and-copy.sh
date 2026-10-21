@@ -22,7 +22,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ADAPTERS_DIR="$SCRIPT_DIR/adapters"
 
 # Default adapter
-IMAGE_ADAPTER="${IMAGE_ADAPTER:-0x0st}"
+if [[ "${1:-}" != "--upload" ]]; then
+    echo "External upload disabled. Invoke through implement with explicit --upload authorization." >&2
+    exit 2
+fi
+shift
+: "${IMAGE_ADAPTER:?Set the explicitly selected upload adapter}"
+
 
 BEFORE_FILE="$1"
 AFTER_FILE="$2"
@@ -133,3 +139,4 @@ After: $AFTER_URL"
         echo "(clipboard copy not available - install pbcopy or xclip)"
     fi
 fi
+

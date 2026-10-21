@@ -1,6 +1,6 @@
 # Third-party notices
 
-Imported skill bodies and bundled resources are unchanged upstream copies. Each row identifies its source revision and distributed license. The manifest records SHA-256 values for the original files and license.
+Skills are based on the upstream revisions below. Selected workflow files are adapted for local operation; upstream hashes and separate adaptation hashes/reasons are recorded in the manifest. Unadapted resources remain unchanged. Each directory retains its distributed license.
 
 Existing skills retain their existing attribution; this table covers this import batch.
 
@@ -40,4 +40,4 @@ Existing skills retain their existing attribution; this table covers this import
 | `write-product-spec` | [warpdotdev/common-skills @ 8792394ff1b6](https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/write-product-spec) | [MIT](write-product-spec/LICENSE) |
 | `write-tech-spec` | [warpdotdev/common-skills @ 8792394ff1b6](https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/write-tech-spec) | [MIT](write-tech-spec/LICENSE) |
 
-Trail of Bits materials retain their CC BY-SA 4.0 license and attribution. This import makes no changes to those materials. Other upstream licenses apply to their respective directories; no blanket repository license overrides them.
+Trail of Bits materials retain their CC BY-SA 4.0 license and attribution. The differential review entrypoint and methodology are adapted for local context and reports; the manifest identifies those changed files. Adaptations retain CC BY-SA 4.0. Other upstream licenses apply to their respective directories; no blanket repository license overrides them.

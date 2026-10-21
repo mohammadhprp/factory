@@ -84,6 +84,5 @@ labeled attention cards, and concise checklist and limitations when needed. The 
 compact monospace labels, irregular rounded borders, subtle hard shadows, and blue,
 orange, and purple accents. Its self-contained HTML uses visible keyboard focus,
 responsive layout, and print styling. All sections remain visible; there is no wizard,
-approval badge, or emoji. If a Mermaid diagram is present, only the pinned Mermaid
-ESM renderer is loaded from jsDelivr; the report displays its source if the CDN
-is unavailable. Without diagrams, no remote assets or scripts are included.
+approval badge, or emoji. If a Mermaid diagram is present, Mermaid
+source remains visible in offline HTML. No remote scripts or assets are loaded; Markdown consumers may render diagrams locally.

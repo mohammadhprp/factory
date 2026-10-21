@@ -1,3 +1,5 @@
 interface:
-  display_name: "Code Review"
-  short_description: "Review a diff on standards and spec"
+  display_name: Code Review
+  short_description: Review local changes against local standards and specifications
+  default_prompt: Use $code-review to review the local diff and local specification.
+    Save findings locally; external source retrieval belongs to $implement.

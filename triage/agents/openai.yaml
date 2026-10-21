@@ -1,5 +1,8 @@
 interface:
-  display_name: "Triage"
-  short_description: "Move issues through triage roles"
+  display_name: Triage
+  short_description: Evaluate local task files, reproduce reported behavior, and reco
+  default_prompt: Use $triage for this task, keeping factory workflow state in local
+    files. External source or delivery operations must go through $implement only
+    when requested.
 policy:
   allow_implicit_invocation: false

@@ -3,6 +3,8 @@ name: incident-runbook-templates
 description: Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use this skill when building a service outage runbook for a payment processing system; creating database incident procedures covering connection pool exhaustion, replication lag, and disk space alerts; onboarding new on-call engineers who need step-by-step recovery guides written for a 3 AM brain; or standardizing escalation matrices across multiple engineering teams.
 ---
 
+Keep factory plans, runbooks, release notes, and reports in the local task directory. Provider commands and publishing examples below are design references, not permission to execute them. External workflow delivery, service mutations, and notifications require an explicit request through implement.
+
 # Incident Runbook Templates
 
 Production-ready templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.

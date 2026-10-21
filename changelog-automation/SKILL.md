@@ -3,6 +3,8 @@ name: changelog-automation
 description: Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use when setting up release workflows, generating release notes, or standardizing commit conventions.
 ---
 
+Keep factory plans, runbooks, release notes, and reports in the local task directory. Provider commands and publishing examples below are design references, not permission to execute them. External workflow delivery, service mutations, and notifications require an explicit request through implement.
+
 # Changelog Automation
 
 Patterns and tools for automating changelog generation, release notes, and version management following industry standards.

@@ -1,6 +1,6 @@
 # Curation and integration notes
 
-Reviewed on 2026-10-21. Imports are pinned to the exact commits in `upstream-skills.json`; skill bodies and bundled resources are copied without edits.
+Reviewed on 2026-10-21. Imports are pinned to the exact commits in `upstream-skills.json`; original source hashes are retained. The local workflow adaptations listed in the manifest override upstream defaults; unchanged resources remain exact copies.
 
 ## Selection method
 
@@ -21,32 +21,41 @@ Read candidate instructions and their bundled dependencies. Prefer concrete work
 
 Not selected from pstack: `poteto-mode` and its broad principle suite overlap with `ponytail`; `how`, `why`, `architect`, `recall`, and `reflect` bring additional mode, model-runner, or companion dependencies. Do not import one of those entry points alone and assume the whole pstack runtime is present.
 
-## Dependency and workflow boundaries
+## Local workflow adaptations
 
-| Workflow | Required companions or prerequisites |
-| --- | --- |
-| Matt engineering workflow | `setup-matt-pocock-skills` configures the consuming project's tracker and domain documents. `implement-spec` calls `tdd` and `code-review`; `tdd` and architecture work use `codebase-design`; architecture work also uses `grilling` and `domain-modeling`. All are present. |
-| Retrospective | `retro` uses `writing-for-agents`, which is included. It suggests environment improvements; importing it does not authorize global configuration changes. |
-| pstack verification | Generate a real project-local verification skill before invoking maintenance. Both generator and maintenance are included with the feature-map examples. This import does not generate a fictional verification skill for every possible project. |
-| Differential security review | The standalone methodology contains a manual context-building fallback and a complete adversarial procedure. The upstream namespaced `audit-context-building` workflow and `differential-review:adversarial-modeler` agent are not registered by a skill-directory install. Use the bundled methodology/adversarial documents directly, or install the original Trail of Bits plugin for native dispatch. `issue-writer` is an optional external reporting integration, not an installed command. |
-| Completion evidence | `verification-before-completion` is standalone. Installing it does not activate the whole Superpowers suite. |
-| LLM evaluation | `llm-evaluation` supplies patterns for LLM features. Provider examples require the matching SDK and credentials. It is not an end-to-end factory benchmark. |
-| Skill evaluation | Anthropic's `skill-creator` supplies graders, schemas, aggregation, and review tools. Some triggering/optimization commands require the Claude CLI and provider access. Basic validation and artifact inspection can run without them. |
-| Skill scanner | Requires Python and PyYAML, or the documented `uv` workflow. Its findings are leads for manual review. |
-| Optional web skills | `webapp-testing` requires Playwright and a working application/browser environment. `frontend-design` is a web specialty. Neither is a prerequisite for CLI, library, native, or embedded work. |
-| Optional checked-in specs | Warp's two skills write `PRODUCT.md` and `TECH.md`. They retain Warp examples and optional references to upstream implementation workflows that are not included. Use the default Matt workflow for a connected, tracker-configurable implementation path. |
+The user requested that the complete factory flow operate locally, with only
+`implement` integrating with externally supplied tasks or explicit delivery.
+This requires deliberate adaptations of existing skills rather than importing
+more skills. The source design and licenses remain attributed.
 
-The existing `implement` still expects a Notion URL and CLI. Its reference to a skill named `spec` does not resolve to `to-spec` automatically. For general tasks, explicitly select `to-spec` → `to-tickets` → `implement-spec`; do not route an arbitrary task through the Notion-only entry point.
+- Planning and setup write local `.factory/<feature>/` files without tracker
+  accounts. Task state, ownership, dependencies, acceptance evidence, and
+  handoff notes stay local.
+- `implement` accepts local work and explicit Jira, GitHub, GitLab, or Notion
+  sources, imports required context, then uses the same local execution flow.
+- Reviews consume local diffs and imported context. Service-specific reference
+  templates, the external spec resolver, and upload helpers live under
+  `implement`. Adapter skills are manually invoked references for it only.
+- Worktree setup uses local Git state without fetching or querying open PRs.
+- Verification maintenance retains local edits and evidence. Reports and
+  screenshots stay project-local; HTML walkthroughs load no CDN assets.
+- Requested delivery, deployment, releases, and notifications require their
+  own authorization through `implement`. Technical research, package sources,
+  and testing application interfaces are separate from workflow state.
 
-The existing `new-feature`, `implement`, and `merge-request` have different base-branch defaults. Existing `merge-request` also retains its fixed assignee. This import preserves those skills instead of silently rewriting their policies. Pick one workflow and apply the consuming project's branch and assignment policy before using its publishing commands.
+The manifest retains each original `files` hash and records `adaptations` with
+an effective SHA-256 and reason. A null effective hash records a removal;
+new paths are also explicit. Validation rejects unrecorded changes. Licenses
+are never adapted. Supporting examples and host metadata follow the new
+entrypoint behavior. This is a documented local fork of selected upstream
+instructions, not an assertion that all imported files are unchanged.
 
-## Portability and authorization
-
-Skills are instructions consumed by an agent host. `Task`, `Skill`, `Workflow`, frontmatter extensions such as `disable-model-invocation`, and tool allowlists are host features, not portable executables. Use a compatible host; do not claim native plugin agents or hooks were installed by copying a directory. Parallel task-graph execution requires actual subagent support.
-
-Keep operating-system commands and provider examples conditional on the target project. A deployment example using Kubernetes does not require Kubernetes for every project. A verification harness for a CLI will differ from a browser, mobile device, library, or firmware harness.
-
-Loading or installing skills does not grant permission to publish releases, deploy, send messages, close issues, change production state, or edit global agent settings. Follow the user's request, host permissions, and consuming repository guidance. The factory collection is not a replacement for those controls.
+Host-specific skill tools and subagents remain conditional. Local task-graph
+execution supports a sequential fallback. The standalone differential review
+uses its bundled context-building and adversarial methodology; optional native
+Trail of Bits plugin agents are not installed by copying a skill directory.
+Model evaluations may require a provider or host CLI; this does not require a
+hosted task tracker.
 
 ## Import inspection
 
@@ -57,7 +66,7 @@ Ran the Sentry scanner over all 33 imports and inspected its high/critical match
 - `skill-creator`: the trigger evaluator writes a temporary command file under the selected project's `.claude/commands`, invokes the Claude CLI, and cleans it up. This is a real, documented configuration mutation, not a read-only validator. Do not run optimization merely to install the skill.
 - `skill-scanner`: detection regexes and reference examples include injection strings, encoded attacks, and sensitive-path examples. They describe threats; they are not instructions to perform them.
 
-The scanner is heuristic and does not recursively inspect every possible resource format. Metadata, checksums, entry-point relative links, and Python syntax are checked separately by `scripts/validate_collection.py`. No automatic hooks or package installation were added to activate the imported skills.
+The scanner is heuristic and does not recursively inspect every possible resource format. Metadata, checksums, entry-point relative links, and Python syntax are checked separately by `scripts/validate_collection.py`. No automatic hooks or package installation were added to activate the imported skills. Upload helpers are now restricted to explicit delivery under `implement`; the walkthrough renderer is offline.
 
 ## Remaining parts of a software factory
 

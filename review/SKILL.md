@@ -1,13 +1,15 @@
 ---
 name: review
-description: Review local Git changes, GitHub pull requests, or GitLab merge requests and produce a structured review.json artifact. Use this skill whenever the user asks for a code review, diff review, PR review, MR review, or production-readiness assessment. Use the gh skill for GitHub and the glab skill for GitLab; never publish review comments.
+description: Review local Git changes or a locally imported patch and produce local
+  review.json and review.html artifacts. No remote fetching, hosted review submission,
+  or account is required.
 ---
 
 # Review Skill
 
 ## Generated files
 
-Save generated artifacts in `~/.stack/<project-name>/review/` (`OUTPUT_DIR`). Use the project root's basename (Git root when available, otherwise the working directory); ask if no project is identifiable. Expand `~`, quote paths, and create the directory only when needed. This location overrides artifact paths in references and examples. Keep requested source, tests, configuration, and project-documentation edits in the project; chat-only output needs no file. Honor explicit user destinations, preserve existing files unless overwrite is approved, and return absolute artifact paths.
+Save artifacts under `.factory/<feature>/review/` in the consuming project, or the supplied persistent local output directory (`OUTPUT_DIR`). Reuse the active task directory; for a standalone review, derive a short review slug from the requested scope. Preserve existing reports unless replacement is requested. Return absolute paths.
 
 Review the requested change and write the result to `$OUTPUT_DIR/review.json`. The review is
 read-only: do not approve, request changes, comment, merge, push, or otherwise
@@ -26,23 +28,9 @@ current repository and ask when the target is ambiguous.
 - Review the working tree as it exists; do not checkout, reset, stash, or amend
   user changes.
 
-### GitHub pull requests
+### Imported change context
 
-- Read the `gh` skill before using GitHub commands.
-- Confirm repository context with `git remote -v` or use `--repo OWNER/REPO`.
-- Read metadata with `gh pr view NUMBER --json title,body,baseRefName,headRefName`.
-- Read the patch with `gh pr diff NUMBER`.
-- Use only read operations. Do not run `gh pr review`, `gh pr comment`, `gh api`
-  mutations, or any other publishing command.
-
-### GitLab merge requests
-
-- Read the `glab` skill before using GitLab commands.
-- Confirm repository context with `git remote -v` or use `-R OWNER/REPO`.
-- Read metadata with `glab mr view NUMBER --output=json`.
-- Read the patch with `glab mr diff NUMBER`.
-- Use only read operations. Do not run `glab mr approve`, `glab mr note`, merge,
-  or other mutating commands.
+For a remote source, `implement` first imports the patch, source description, base/head identities, and needed check results into local files. Read those files here. A source URL is a citation only; do not resolve it or call a hosting CLI. If the local patch or necessary context is missing, report the limitation.
 
 ## Review process
 
@@ -102,7 +90,7 @@ Before finishing, validate JSON and, when an annotated diff is available, run:
 
 ```sh
 python3 .agents/skills/review/scripts/validate_review_json.py \
-  --review-json "$OUTPUT_DIR/review.json" --diff "$OUTPUT_DIR/pr_diff.txt"
+  --review-json "$OUTPUT_DIR/review.json" --diff "$OUTPUT_DIR/diff.txt"
 ```
 
 If that path is unavailable, run the validator from this skill's `scripts/`
@@ -114,7 +102,8 @@ python3 .agents/skills/review/scripts/render_review.py \
 ```
 
 The renderer creates a self-contained Excalidraw-inspired dark HTML report.
-Save any captured diff to `$OUTPUT_DIR/pr_diff.txt` too. Set `OUTPUT_DIR` to the
+Save any captured diff to `$OUTPUT_DIR/diff.txt` too. Set `OUTPUT_DIR` to the
 expanded absolute skill output directory before these commands; create it before
 writing and check existing outputs before invoking the renderer. The final
 artifacts are `$OUTPUT_DIR/review.json` and `$OUTPUT_DIR/review.html`.
+

@@ -32,7 +32,7 @@ def contained_file(relative):
 def validate():
     errors = []
     manifest = json.loads((ROOT / "upstream-skills.json").read_text())
-    if manifest.get("version") != 1:
+    if manifest.get("version") not in (1, 2):
         raise ValueError("Unsupported upstream manifest version")
     names = set()
     for skill in sorted(ROOT.glob("*/SKILL.md")):
@@ -60,7 +60,20 @@ def validate():
         imported.add(name)
         if not re.fullmatch(r"[0-9a-f]{40}", entry["commit"]):
             errors.append(f"{name}: source must be pinned to a commit")
-        expected_files = set(entry["files"])
+        effective = dict(entry["files"])
+        for relative, adaptation in entry.get("adaptations", {}).items():
+            if not isinstance(adaptation.get("reason"), str) or not adaptation["reason"].strip():
+                raise ValueError(f"{name}/{relative}: adaptation needs a reason")
+            expected = adaptation.get("sha256")
+            if expected is None:
+                if relative not in effective:
+                    raise ValueError(f"{name}/{relative}: cannot remove an unknown upstream file")
+                del effective[relative]
+            elif re.fullmatch(r"[0-9a-f]{64}", str(expected)):
+                effective[relative] = expected
+            else:
+                raise ValueError(f"{name}/{relative}: invalid adaptation hash")
+        expected_files = set(effective)
         expected_files.add(Path(entry["license_path"]).relative_to(name).as_posix())
         actual_files = {
             p.relative_to(ROOT / name).as_posix()
@@ -69,10 +82,10 @@ def validate():
         }
         if expected_files != actual_files:
             errors.append(f"{name}: untracked import files {sorted(expected_files ^ actual_files)}")
-        for relative, expected in entry["files"].items():
+        for relative, expected in effective.items():
             path = contained_file(f"{name}/{relative}")
             if digest(path) != expected:
-                errors.append(f"{name}/{relative}: upstream checksum mismatch")
+                errors.append(f"{name}/{relative}: source/adaptation checksum mismatch")
             if path.suffix == ".py":
                 ast.parse(path.read_text(), filename=str(path))
             if path.suffix == ".sh":
@@ -94,7 +107,7 @@ def validate():
             errors.append(f"skills-lock.json references missing skill {name}")
     if errors:
         raise ValueError("\n".join(errors))
-    print(f"Validated {len(names)} skills, {len(imported)} pinned imports, {files_checked} upstream files")
+    print(f"Validated {len(names)} skills, {len(imported)} pinned imports, {files_checked} source/adaptation files")
 
 
 if __name__ == "__main__":

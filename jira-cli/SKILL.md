@@ -1,8 +1,14 @@
 ---
 name: jira-cli
-description: Expert guidance for using the Jira CLI (jira) to manage Jira issues, sprints, epics, comments, transitions, and worklogs from the command line. Use this skill when the user needs to interact with Jira resources or perform Jira workflows — listing, creating, editing, or transitioning issues, running JQL queries, or scripting against Jira data — even if they don't explicitly mention the jira CLI.
+description: Adapter reference used only by implement for explicitly requested external
+  jira-cli operations. Not a standalone factory workflow; local planning, review,
+  and tracking do not use this adapter.
 allowed-tools: Bash, Read, Grep, Glob
+disable-model-invocation: true
 ---
+
+> Use only under `implement` after an explicit external-source or delivery request. Reading a source does not authorize the mutation examples below. Verify destinations and replace example defaults with task settings.
+
 
 # Jira CLI (jira) Skill
 
@@ -258,3 +264,4 @@ For detailed troubleshooting, load **references/troubleshooting.md**.
 - Sprint lists show only the 25 most recent sprints
 - Descriptions and comments accept GitHub-flavored and Jira-flavored Markdown
 - Shell completion is available via `jira completion --help`
+

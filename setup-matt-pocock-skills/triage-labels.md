@@ -1,15 +1,16 @@
-# Triage Labels
+# Local task states
 
-The skills speak in terms of five canonical triage roles. This file maps those roles to the actual label strings used in this repo's issue tracker.
+Store `Status:` in each task file. These values are local states, not hosted labels:
 
-| Label in mattpocock/skills | Label in our tracker | Meaning                                  |
-| -------------------------- | -------------------- | ---------------------------------------- |
-| `needs-triage`             | `needs-triage`       | Maintainer needs to evaluate this issue  |
-| `needs-info`               | `needs-info`         | Waiting on reporter for more information |
-| `ready-for-agent`          | `ready-for-agent`    | Fully specified, ready for an AFK agent  |
-| `ready-for-human`          | `ready-for-human`    | Requires human implementation            |
-| `wontfix`                  | `wontfix`            | Will not be actioned                     |
+| Status | Meaning |
+| --- | --- |
+| needs-triage | Not yet evaluated |
+| needs-info | Required information is missing |
+| ready-for-agent | Actionable and eligible once blockers are done |
+| ready-for-human | Requires human judgment or unavailable capability |
+| in-progress | Claimed and being implemented |
+| blocked | Cannot proceed; record the release condition |
+| done | Acceptance criteria verified with evidence |
+| wontfix | Deliberately declined with a recorded reason |
 
-When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
-
-Edit the "Label in our tracker" column to match whatever vocabulary you actually use.
+Store `Category: bug` or `Category: enhancement` separately. Store `Owner: unclaimed` until a session claims the task. Never map these values to remote labels automatically.

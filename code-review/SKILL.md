@@ -1,6 +1,8 @@
 ---
 name: code-review
-description: "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\"."
+description: Review a local branch, working-tree diff, or locally imported patch against
+  local standards and specifications. Save the review locally without retrieving or
+  publishing hosted reviews.
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
@@ -10,7 +12,7 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 
 Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
 
-The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+Use the local specification and task directory. No tracker setup or credentials are required. Save the review under `.factory/<feature>/review/code-review.md` (or the supplied local output directory). Do not contact hosted task or repository services.
 
 ## Process
 
@@ -24,12 +26,7 @@ Before going further, confirm the fixed point resolves (`git rev-parse <fixed-po
 
 ### 2. Identify the spec source
 
-Look for the originating spec, in this order:
-
-1. Issue references in the commit messages (`#123`, `Closes #45`, GitLab `!67`, etc.), fetched via the workflow in the tracker doc.
-2. A path the user passed as an argument.
-3. A spec file under `docs/`, `specs/`, or `.scratch/` matching the branch name or feature.
-4. If nothing is found, ask the user where the spec is. If they say there isn't one, the **Spec** sub-agent will skip and report "no spec available".
+Look for the originating specification in the supplied local path, the task's `Spec:` field, `.factory/<feature>/spec.md`, or existing `specs/` and `docs/` files. Treat issue URLs in commits as citations only. If a remote source is needed, `implement` imports it first. If no local spec is available, report that limitation rather than fetching one or inventing requirements.
 
 ### 3. Identify the standards sources
 
@@ -57,7 +54,7 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 
 ### 4. Spawn both sub-agents in parallel
 
-Issue both sub-agent calls together, in the foreground, and aggregate the reports they return.
+When subagents are supported, issue both review calls together and aggregate their reports. Otherwise perform the same two passes separately. Keep all findings and outputs local.
 
 **Standards sub-agent prompt** should include:
 

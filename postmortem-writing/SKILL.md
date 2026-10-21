@@ -3,6 +3,8 @@ name: postmortem-writing
 description: Write effective blameless postmortems with root cause analysis, timelines, and action items. Use when conducting incident reviews, writing postmortem documents, or improving incident response processes.
 ---
 
+Keep factory plans, runbooks, release notes, and reports in the local task directory. Provider commands and publishing examples below are design references, not permission to execute them. External workflow delivery, service mutations, and notifications require an explicit request through implement.
+
 # Postmortem Writing
 
 Comprehensive guide to writing effective, blameless postmortems that drive organizational learning and prevent incident recurrence.
