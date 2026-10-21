@@ -190,35 +190,16 @@ and overlapping entry points. Update [README.md](README.md) and
 Do not activate tracker setup, deployment, release publication, or global
 agent configuration merely to validate an import.
 
-## Checks in this repository
+## Review changes in this repository
 
-Run from the repository root with Python 3.12 and PyYAML available:
+Inspect the changed instructions, named skills, local references, source
+provenance, and licenses. Keep the workflow and supporting examples consistent.
+No collection-validation script, regression suite, or CI gate is required.
 
-```sh
-python scripts/validate_collection.py
-```
-
-The validator checks skill metadata, pinned imports, file and license
-checksums, imported entry-point local links, Python syntax, shell syntax,
-and the existing lock's referenced skill directories.
-
-Also inspect the diff and check whitespace in the files you authored:
-
-```sh
-git diff --check
-git diff --cached --check
-```
-
-Upstream copies can contain existing whitespace warnings. Preserve those
-bytes and distinguish them from errors introduced in local integration files.
-For documentation edits, check named skills and local links against the tree.
-For executable helper changes, run an appropriate isolated smoke check after
-reading the helper. A source checksum or syntax check does not prove runtime
-behavior, model effectiveness, every platform, or a live external integration.
-
-CI runs the collection validator through
-[validate-skills.yml](.github/workflows/validate-skills.yml). Report its actual
-status; do not describe a queued or unavailable run as passed.
+When an executable helper changes, check its actual behavior as appropriate.
+When using the factory in a consuming application, retain that application's
+relevant tests and acceptance evidence. Removing collection infrastructure
+is not permission to skip verification of the software being implemented.
 
 ## Writing and finishing
 

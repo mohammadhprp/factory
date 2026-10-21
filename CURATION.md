@@ -45,7 +45,7 @@ more skills. The source design and licenses remain attributed.
 
 The manifest retains each original `files` hash and records `adaptations` with
 an effective SHA-256 and reason. A null effective hash records a removal;
-new paths are also explicit. Validation rejects unrecorded changes. Licenses
+new paths are also explicit. Review changes against this provenance record. Licenses
 are never adapted. Supporting examples and host metadata follow the new
 entrypoint behavior. This is a documented local fork of selected upstream
 instructions, not an assertion that all imported files are unchanged.
@@ -66,7 +66,7 @@ Ran the Sentry scanner over all 33 imports and inspected its high/critical match
 - `skill-creator`: the trigger evaluator writes a temporary command file under the selected project's `.claude/commands`, invokes the Claude CLI, and cleans it up. This is a real, documented configuration mutation, not a read-only validator. Do not run optimization merely to install the skill.
 - `skill-scanner`: detection regexes and reference examples include injection strings, encoded attacks, and sensitive-path examples. They describe threats; they are not instructions to perform them.
 
-The scanner is heuristic and does not recursively inspect every possible resource format. Metadata, checksums, entry-point relative links, and Python syntax are checked separately by `scripts/validate_collection.py`. No automatic hooks or package installation were added to activate the imported skills. Upload helpers are now restricted to explicit delivery under `implement`; the walkthrough renderer is offline.
+The scanner is heuristic and does not recursively inspect every possible resource format. Review source provenance, links, and helper changes directly; collection validation scripts and CI gates are not required. No automatic hooks or package installation were added to activate the imported skills. Upload helpers are now restricted to explicit delivery under `implement`; the walkthrough renderer is offline.
 
 ## Remaining parts of a software factory
 
@@ -83,6 +83,6 @@ The scanner is heuristic and does not recursively inspect every possible resourc
 | Operations | Runbooks, postmortems, triage | Monitoring integrations, service ownership, and incident access |
 | Factory evaluation | Skill evaluation tooling and benchmark discipline | Representative task corpus, independent scoring, cost budgets, and regression thresholds |
 | Interface quality | Optional design, browser tests, accessibility guidance | Native platform tooling and project-specific user journeys |
-| Distribution and maintenance | Commit-pinned imports, licenses, integrity checks, CI | Host installation and deliberate upstream updates |
+| Distribution and maintenance | Commit-pinned imports, licenses, and manual review | Host installation and deliberate upstream updates |
 
 These remaining requirements are not solved by adding more Markdown. This PR imports existing capabilities and records those boundaries; it does not invent an orchestration service or claim autonomous factory readiness.

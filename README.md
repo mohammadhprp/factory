@@ -89,17 +89,12 @@ original hashes. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) preserves
 licenses and attribution. `skills-lock.json` is older Skills CLI provenance,
 not the effective adaptation manifest.
 
-## Validate
+## Maintain
 
-```sh
-python -m pip install PyYAML==6.0.3
-python scripts/validate_collection.py
-python -m unittest discover -s tests -v
-```
+Review changed instructions, references, dependencies, licenses, and source
+provenance directly. The collection requires no validation script, regression
+suite, CI gate, or Python installation merely to manage its skill files.
+Individual skill helpers may have their own runtime dependencies when used.
 
-Validation checks metadata, import/adaptation integrity, licenses, links,
-and syntax. Regression checks cover local workflow boundaries and offline
-report generation. These checks do not prove model effectiveness or every
-project runtime. Local validation runs without a service account. An optional
-GitHub Actions job runs the same checks for this collection's review process;
-CI and PR publication are not prerequisites for using the factory.
+Consuming applications still use their own relevant tests and acceptance
+checks during implementation.
