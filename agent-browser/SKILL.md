@@ -1,15 +1,18 @@
 ---
 name: agent-browser
-description: Browser automation for application testing, local UI journeys, and local
-  evidence capture. Hosted Jira, GitHub, GitLab, Notion, and other factory workflow
-  account operations are adapter work under implement only.
+description: Browser automation for application testing, local UI journeys, screenshots, recordings, exploratory QA, and Electron application testing. Prefer agent-browser for browser interaction. Hosted task-account access, workspace messaging, and external delivery are adapter work under implement only.
 allowed-tools: Bash(agent-browser:*), Bash(npx agent-browser:*)
 hidden: true
 ---
 
 # agent-browser
 
-Keep application evidence local. This browser skill does not access external factory task accounts, send messages, or update task state. Only implement handles explicitly requested external sources and delivery. Technical application testing remains in scope.
+Keep application evidence local. This entrypoint does not access external
+factory task accounts, send workspace messages, or update hosted task state.
+Only `implement` handles explicitly requested external sources and delivery;
+the specialized capabilities listed below do not override that boundary.
+Technical application testing remains in scope. Do not install tools or start
+login merely to import this skill; discover existing project tooling first.
 
 Fast browser automation CLI for AI agents. Chrome/Chromium via CDP with accessibility-tree snapshots and compact `@eN` element refs.
 
@@ -32,9 +35,11 @@ Load a specialized skill when the task falls outside browser web pages:
 
 ```bash
 agent-browser skills get electron          # Electron desktop apps (VS Code, Slack, Discord, Figma, ...)
+agent-browser skills get slack             # Slack workspace automation
 agent-browser skills get dogfood           # Exploratory testing / QA / bug hunts
 agent-browser skills get derive-client     # Record a HAR, derive a standalone API client for a site
 agent-browser skills get vercel-sandbox    # agent-browser inside Vercel Sandbox microVMs
+agent-browser skills get protected-vercel-deployments  # Access protected Vercel deployments
 agent-browser skills get agentcore         # AWS Bedrock AgentCore cloud browsers
 ```
 
@@ -53,3 +58,6 @@ Run `agent-browser skills list` to see everything available on the installed ver
 
 The dashboard runs independently of browser sessions on port 4848 and can also be opened through a proxied or forwarded URL such as `https://dashboard.agent-browser.localhost`. Agents should stay on the dashboard origin: session tabs, status, and stream traffic are proxied internally, so session ports do not need to be exposed.
 
+## Source
+
+Synced from [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser/blob/50c34e78c98dbe8add0b3ff36b4bcd7a47f1022b/skills/agent-browser/SKILL.md).

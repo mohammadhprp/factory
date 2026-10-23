@@ -41,3 +41,26 @@ Existing skills retain their existing attribution; this table covers this import
 | `write-tech-spec` | [warpdotdev/common-skills @ 8792394ff1b6](https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/write-tech-spec) | [MIT](write-tech-spec/LICENSE) |
 
 Trail of Bits materials retain their CC BY-SA 4.0 license and attribution. The differential review entrypoint and methodology are adapted for local context and reports; the manifest identifies those changed files. Adaptations retain CC BY-SA 4.0. Other upstream licenses apply to their respective directories; no blanket repository license overrides them.
+
+## Shared Stack refresh, 2026-10-23
+
+Seven existing skills were synchronized from `framework/skills/` at Stack commit
+`261f1e34abc35245756790dc4f65acbf49cfb695`. Stack is the immediate source;
+the original authors and per-directory licenses below remain applicable.
+Original import records above are retained, not replaced by this refresh.
+Source and effective file hashes and local adaptations are recorded separately
+in `upstream-skills.json`.
+
+| Skill | Original source | Retained license |
+| --- | --- | --- |
+| `agent-browser` | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) | [Apache-2.0](agent-browser/LICENSE) |
+| `before-and-after` | [vercel-labs/before-and-after](https://github.com/vercel-labs/before-and-after) | [PolyForm Shield 1.0.0](before-and-after/LICENSE) |
+| `docs-writer` | [google-gemini/gemini-cli @ a713410aba5d](https://github.com/google-gemini/gemini-cli/tree/a713410aba5d594594e20d5c822e3aab8f822089/.gemini/skills/docs-writer) | [Apache-2.0](docs-writer/LICENSE) |
+| `frontend-design` | [anthropics/skills](https://github.com/anthropics/skills) | [Apache-2.0](frontend-design/LICENSE.txt) |
+| `grilling` | [mattpocock/skills](https://github.com/mattpocock/skills) | [MIT](grilling/LICENSE) |
+| `ponytail` | [DietrichGebert/ponytail @ 09c434ab73ca](https://github.com/DietrichGebert/ponytail/tree/09c434ab73ca43761c5d8b0c5d341926c2fba710) | [MIT](ponytail/LICENSE) |
+| `skill-creator` | [anthropics/skills](https://github.com/anthropics/skills) | [Apache-2.0](skill-creator/LICENSE.txt) |
+
+Before-and-after's PolyForm Shield license is restrictive, not MIT or Apache;
+review its terms before reuse. Factory retains the notice and adapts only the
+workflow instructions and examples, not the license or imported formatter.

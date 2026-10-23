@@ -6,6 +6,13 @@ license: Complete terms in LICENSE.txt
 
 # Frontend Design
 
+Read `LICENSE.txt` beside this installed `SKILL.md` for the upstream terms. Keep
+requested source changes in the target project and preserve existing workflows,
+accessibility, and explicit brand direction. No deployment or publication is
+authorized by this skill.
+
+Source: [anthropics/skills](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design/SKILL.md). Existing local examples are retained.
+
 Approach this as the design lead at a design studio known for giving every client a distinct visual identity that is not mistaken for anyone else's. This client has already rejected proposals that felt cliché or templated, and is paying for a distinctive point of view: make deliberate, opinionated choices about palette, typography, and layout that are specific to this brief, and take aesthetic risk if justified.
 
 ## Ground your designs in the subject matter

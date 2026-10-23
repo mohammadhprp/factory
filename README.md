@@ -89,6 +89,14 @@ original hashes. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) preserves
 licenses and attribution. `skills-lock.json` is older Skills CLI provenance,
 not the effective adaptation manifest.
 
+The 2026-10-23 Stack refresh updates only existing shared skills:
+`agent-browser`, `before-and-after`, `docs-writer`, `frontend-design`, `grilling`,
+`ponytail`, and `skill-creator`. The collection still contains 52 skills.
+Factory's local-only workflows and different TDD lineage are preserved.
+`before-and-after` now uses agent-browser guidance and a bundled Node.js
+formatter for local comparison Markdown; it never initiates an upload.
+The manifest records this Stack snapshot separately from original imports.
+
 ## Maintain
 
 Review changed instructions, references, dependencies, licenses, and source

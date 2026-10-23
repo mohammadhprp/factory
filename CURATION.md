@@ -59,6 +59,32 @@ hosted task tracker.
 
 ## Import inspection
 
+### Shared Stack refresh, 2026-10-23
+
+Compared all 20 skills present in both collections against Stack commit
+`261f1e34abc35245756790dc4f65acbf49cfb695` (`framework/skills/`). Refreshed
+`agent-browser`, `before-and-after`, `docs-writer`, `frontend-design`, `grilling`,
+`ponytail`, and `skill-creator`. No skill directories were added; the other
+13 shared skills and all Factory-only skills remain unchanged.
+
+Preserved Factory's deliberate local review, task storage, TDD source lineage,
+and implement-only external delivery. Before-and-after uses agent-browser for
+capture and an offline Node.js formatter; Stack's hosted publishing instructions
+and GitLab delivery reference were not imported. The formatter retains upstream
+URL-formatting options but performs no network operations; the local entrypoint
+does not use them. Docs audits save reports in the local task review directory.
+Ponytail retains its consolidated operations with local task paths and already
+imported review context rather than fetching hosted reviews.
+
+`upstream-skills.json` records the synchronization snapshot, per-file source and
+effective hashes, and adaptation reasons separately from original import hashes.
+Existing licenses remain unchanged; missing upstream notices were added. No
+hooks, global configuration, package installation, or trigger optimization were
+activated. The executable formatter is checked directly, not with a new
+collection regression suite.
+
+### Original import inspection
+
 Ran the Sentry scanner over all 33 imports and inspected its high/critical matches. The notable matches were:
 
 - `sharp-edges`: the checklist phrase about preventing security bypass, and Unicode joiners inside a Swift family-emoji example. These are ordinary security guidance and example text.

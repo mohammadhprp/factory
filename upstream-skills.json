@@ -1,5 +1,94 @@
 {
   "version": 2,
+  "synchronizations": [
+    {
+      "date": "2026-10-23",
+      "source": "Stack",
+      "commit": "261f1e34abc35245756790dc4f65acbf49cfb695",
+      "source_path": "framework/skills",
+      "scope": "Only existing shared skills; original import hashes below are retained. Paths below are collection-relative. Source hashes equal effective hashes unless an adaptation overrides them.",
+      "files": {
+        "agent-browser/LICENSE": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
+        "agent-browser/SKILL.md": "c63690137082a0ceb76dda68dc4001cc46430b690acef847fb3317f446d94db1",
+        "before-and-after/SKILL.md": "a7b31a9a6140b558446e93bba140f6b717999734fb5a1feef6fa50c2f670b2a1",
+        "before-and-after/examples.md": "a726c794f7902c28bdb7900255de87b66713e31b27d3654c95766ed109a40055",
+        "before-and-after/scripts/format.mjs": "204f548fbe68b9f13afb43879a26623bea57dc09d4d29766195a51e41f1db14e",
+        "docs-writer/LICENSE": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "docs-writer/SKILL.md": "f4e85eba9743a3aec10dca5b79d675c2341f058e3993850dcc7354d3b975848e",
+        "docs-writer/references/docs-auditing.md": "27b837dc8695095054e7e1662c8d1bd4e592a71b0608d4b74aa33ed21efb3ce9",
+        "docs-writer/references/quota-limit-style-guide.md": "9c59d6d0bb64815a7cddb72cd877443f505aefb15cdfa64841bb5a4b14cc35a6",
+        "frontend-design/SKILL.md": "3b90bffdf7dc1f4c59dfa3e4c746afd448c49da6d7092dbe137aa9dd8dbe9c06",
+        "frontend-design/examples.md": "ee776d3e3dc5c08bd3cb082e777fd0188f57c96660853130052031570b2c93be",
+        "grilling/LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+        "grilling/SKILL.md": "e0eb5b6b0216be9830b8f15cba199e6c20ae9751ef676957d51122c06d5c7f13",
+        "ponytail/LICENSE": "fb1bc6909ac3ef82d5c22106e32ef682b0cff66788fa915fb9b53b15c9d2f3ab",
+        "ponytail/SKILL.md": "6ba49374876f5ed9700a94815be46eb168919318db46fac9f4fe95d4bd605ffa",
+        "ponytail/examples.md": "dad5207b3442b93f063a7683b776f85de88b6057e4534216659b630ff1423ae9",
+        "ponytail/references/ponytail-audit.md": "fa9590b4c3354a9410091f1cb0c4fb447560d81532bd58cb050bb64b38a7eb00",
+        "ponytail/references/ponytail-debt.md": "f4158157058fb1f303c1c6d9f3515075113d5c4d5f1d93fa23dde18e63ce69c9",
+        "ponytail/references/ponytail-gain.md": "b6aa4ee02b5cb559a86a21eff021b6c4d2048e0636c1b47ce8278219b81bcc52",
+        "ponytail/references/ponytail-help.md": "f171c36ff272e8240ff4cc75f7222c6b0d7c27967149186f855848d7015e94d2",
+        "ponytail/references/ponytail-mode.md": "f69671918445560a4d29671d0ed66efc802bb0971708011c40e5afefcdf9de9f",
+        "ponytail/references/ponytail-review.md": "5e238db8fade27846c99e7a5df3c16918db761c296dc0ece44242230769d8a9f",
+        "ponytail/references/ponytail-rules.md": "78edf83dab77db424a19e0629c74f3d9dcd706a7144ac32623ec2d45fa354abc",
+        "ponytail/references/upstream.md": "7f802640976ca065e20e468173ffc26f1d602845af02dd758a9c40fb5da878bf",
+        "skill-creator/examples.md": "1cf32f2da3b856880d34340f22fa8ae487066a9263b2815d16b11a619b3a0a5d"
+      },
+      "adaptations": {
+        "agent-browser/SKILL.md": {
+          "sha256": "1994b3189811be65de8a9a33d73f6d1edd26945d30354d84bc09186c312e0f9c",
+          "reason": "Preserve Factory's application-testing scope, local evidence, and implement-only hosted account and messaging boundary while importing updated capability guidance."
+        },
+        "before-and-after/SKILL.md": {
+          "sha256": "751a3392050235cfe74aeda423b9f6b17e895c517eeac22a6a0af12a28862b17",
+          "reason": "Keep capture and formatter output in local task evidence, preserve installed-relative paths, and route external delivery through implement instead of importing hosted publishing instructions."
+        },
+        "before-and-after/examples.md": {
+          "sha256": "02a00bfce0f0f3581811b5b38595def4ede64d8c157c7c200994bd964d3cee62",
+          "reason": "Replace hosted publishing examples with local capture, comparison, and document-update examples."
+        },
+        "docs-writer/SKILL.md": {
+          "sha256": "0146ebf4278d4e795ad4bafee066cb5bd3bad3d7d90a6db8718aa9b6343a76a7",
+          "reason": "Use project-local task review artifacts instead of ~/.stack and preserve the implement-only external boundary."
+        },
+        "docs-writer/references/docs-auditing.md": {
+          "sha256": "bcfe314817853d244eff769a63370457b916398da07c1420b6c46462cd3dd604",
+          "reason": "Finish with a local human review rather than requiring a hosted PR."
+        },
+        "ponytail/SKILL.md": {
+          "sha256": "07b5a3761f91f619a1c72e5750ba5a5894e7c384eb098ef1608bf7c06216f09b",
+          "reason": "Retain Factory branding, local task artifacts, and imported-context-only review and audit."
+        },
+        "ponytail/examples.md": {
+          "sha256": "7643e8882d0256b71d342606e96d0781402f7bd136016906bcf08e3f93b32b0b",
+          "reason": "Describe Factory's instruction-only installation, not Stack activation."
+        },
+        "ponytail/references/ponytail-debt.md": {
+          "sha256": "eeb58ca5668853b1a75e32663f675a7f1065ad9c314f50b4851c78a9fd6dbb30",
+          "reason": "Keep ledger artifacts in the local task or supplied project-local path."
+        },
+        "ponytail/references/ponytail-help.md": {
+          "sha256": "77bf3148ac6c19dfd209480e1c4164101d82e3b55eff49ecb907dc2749d884b4",
+          "reason": "Explain Factory installation and collection updates without assuming Stack's installer."
+        },
+        "ponytail/references/ponytail-mode.md": {
+          "sha256": "9c3668c3ac175107bf4e8a2d447d8902b5c28fca580f5f89de16ff99a880e989",
+          "reason": "Describe Factory's lack of automatic upstream plugin hooks."
+        },
+        "ponytail/references/ponytail-review.md": {
+          "sha256": "5970963cb39f52975f5f1572214ad0c25ce55ca88d8472d8e3ede8fbe55bc421",
+          "reason": "Consume local changes or remote-origin context already imported by implement; do not fetch hosted reviews."
+        },
+        "ponytail/references/upstream.md": {
+          "sha256": "3d64aaf84a4ba9996af891d234be4debb918518cdca92b011128a1265c900355",
+          "reason": "Document Factory adaptations separately from Stack's consolidation and original upstream source."
+        }
+      },
+      "omitted": {
+        "before-and-after/references/gitlab.md": "Hosted delivery reference is outside the local-only entrypoint; existing delivery adapters remain under implement."
+      }
+    }
+  ],
   "imports": [
     {
       "name": "build-factory",
@@ -520,6 +609,16 @@
       "source_path": "skills/frontend-design",
       "license_path": "frontend-design/LICENSE.txt",
       "license_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "adaptations": {
+        "SKILL.md": {
+          "sha256": "3b90bffdf7dc1f4c59dfa3e4c746afd448c49da6d7092dbe137aa9dd8dbe9c06",
+          "reason": "Synchronize Stack's project-safety and upstream-source wrapper; retain original Anthropic hash below."
+        },
+        "examples.md": {
+          "sha256": "ee776d3e3dc5c08bd3cb082e777fd0188f57c96660853130052031570b2c93be",
+          "reason": "Add Stack's shared examples; source snapshot is recorded in synchronizations."
+        }
+      },
       "files": {
         "LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
         "SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
@@ -554,6 +653,12 @@
       "source_path": "skills/skill-creator",
       "license_path": "skill-creator/LICENSE.txt",
       "license_sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+      "adaptations": {
+        "examples.md": {
+          "sha256": "1cf32f2da3b856880d34340f22fa8ae487066a9263b2815d16b11a619b3a0a5d",
+          "reason": "Add Stack's shared examples without changing original Anthropic files or running optimization tooling."
+        }
+      },
       "files": {
         "LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
         "SKILL.md": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf",
